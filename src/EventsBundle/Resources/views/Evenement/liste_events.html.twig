@@ -1,0 +1,209 @@
+{% extends '@Events/Base_backend/base.html.twig' %}
+{% block title %}
+     Liste des événements
+{% endblock %}
+{% block navbar %}
+    <li class="nav-item active open">
+        <a href="#" class="nav-link nav-toggle">
+            <span class="title">Evenements</span><span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item">
+                <a href="{{ path('events_accueil') }}" class="nav-link"> <span class="title">
+												Calendrier</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a href="{{ path('events_listeevent') }}" class="nav-link "> <span class="title">
+												Liste des événements</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link "> <span class="title">Evénements en attente</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ path('events_listecategorie') }}" class="nav-link "> <span class="title">Liste des catégories</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+{% endblock %}
+{% block content %}
+    <!-- start page content -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+                <div class="page-title-breadcrumb">
+                    <div class=" pull-left">
+                        <div class="page-title">Liste des événements</div>
+                    </div>
+                    <ol class="breadcrumb page-breadcrumb pull-right">
+                        <li><i class="fa fa-home"></i>&nbsp;
+                            <a class="parent-item"
+                               href="{{ path('events_accueil') }}">Accueil</a>&nbsp;
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li><a class="parent-item" href="#">Evénements</a>&nbsp;<i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="active">Liste des événements</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tabbable-line">
+
+                        <ul class="nav customtab nav-tabs" role="tablist">
+                            <li class="nav-item"><a href="#tab1" class="nav-link" data-toggle="tab">List
+                                    View</a></li>
+                            <li class="nav-item"><a href="#tab2" class="nav-link active" data-toggle="tab">Grid
+                                    View</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane fontawesome-demo" id="tab1">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-box">
+                                            <div class="card-head">
+                                                <header>Tous les événements</header>
+                                                <div class="tools">
+                                                    <a class="fa fa-repeat btn-color box-refresh"
+                                                       href="javascript:;"></a>
+                                                    <a class="t-collapse btn-color fa fa-chevron-down"
+                                                       href="javascript:;"></a>
+                                                    <a class="t-close btn-color fa fa-times"
+                                                       href="javascript:;"></a>
+                                                </div>
+                                            </div>
+                                            <div class="card-body ">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-6 col-6">
+                                                        <div class="btn-group">
+                                                            <a href="{{ path('events_ajoutevent') }}" id="addRow"
+                                                               class="btn btn-info">
+                                                                Ajouter un événement <i class="fa fa-plus"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-6">
+                                                        <div class="btn-group pull-right">
+                                                            <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                                                               data-toggle="dropdown">Tools
+                                                                <i class="fa fa-angle-down"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu pull-right">
+                                                                <li>
+                                                                    <a href="javascript:;">
+                                                                        <i class="fa fa-print"></i> Print </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:;">
+                                                                        <i class="fa fa-file-pdf-o"></i> Save as
+                                                                        PDF </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:;">
+                                                                        <i class="fa fa-file-excel-o"></i>
+                                                                        Export to Excel </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="table-scrollable">
+                                                    <table
+                                                            class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                                                            id="example4">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Titre</th>
+                                                            <th> Description </th>
+                                                            <th> Date début </th>
+                                                            <th> Nombre maximal de participants </th>
+                                                            <th> Lieu </th>
+                                                            <th> Frais </th>
+                                                            <th>Date fin</th>
+                                                            <th>Catégorie</th>
+                                                            <th> Action </th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for event in events %}
+                                                        <tr class="odd gradeX">
+                                                            <td>{{ event.idevenement}}</td>
+                                                            <td class="left">{{ event.titre}}</td>
+                                                            <td class="left">{{ event.date | date}}</td>
+                                                            <td>{{ event.nbParticipantMax }}</td>
+                                                            <td>{{ event.Lieu}}</td>
+                                                            <td class="left">{{ event.frais}}</td>
+                                                            <td class="left">{{ event.datefin | date}}</td>
+                                                            <td class="left">{{ event.categorie.libelle}}</td>
+                                                            <td>
+                                                                <a href="{{ path('events_modifierevent',{ 'id' : event.idevenement}) }}"
+                                                                   class="btn btn-primary btn-xs">
+                                                                    <i class="fa fa-pencil"></i>
+                                                                </a>
+                                                                <a href="{{ path('events_supprimerevent',{ 'id' : event.idevenement}) }}"
+                                                                   class="btn btn-danger btn-xs">
+                                                                    <i class="fa fa-trash-o "></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane active" id="tab2">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-6">
+                                        <div class="btn-group">
+                                            <a href="{{ path('events_ajoutevent') }}" id="addRow"
+                                               class="btn btn-info">
+                                                Ajouter un événement <i class="fa fa-plus"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    {% for event in events %}
+                                    <div class="col-md-6">
+                                        <div class="card card-box">
+                                            <div class="card-body no-padding ">
+                                                <div class="doctor-profile">
+                                                    <img src="http://radixtouch.in/templates/admin/smart/source/assets/img/prof/prof10.jpg" class="doctor-pic"
+                                                         alt="">
+                                                    <div class="profile-usertitle">
+                                                        <div class="doctor-name">{{ event.titre }} </div>
+                                                        <div class="name-center font-italic mdl-color--blue"> {{ event.categorie.libelle}} </div>
+                                                    </div>
+                                                    <p>{{ event.description }}</p>
+                                                    <div>
+                                                        <p><i class="fa fa-map-marker"></i> {{ event.lieu }}</p>
+                                                    </div>
+                                                    <div class="profile-userbuttons">
+                                                        <a href="{{ path('events_detailsevent', { 'id' : event.idevenement }) }}"
+                                                           class="btn btn-circle deepPink-bgcolor btn-sm">Read
+                                                            More</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end page content -->
+{% endblock %}

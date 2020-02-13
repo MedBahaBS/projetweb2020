@@ -1,0 +1,41 @@
+events_homepage:
+    path: /
+    defaults: {_controller: EventsBundle:Login:index}
+events_accueil:
+    path:     /admin
+    defaults: { _controller: EventsBundle:Categorie:accueil }
+events_listecategorie:
+    path:     /admin/listCategorie
+    defaults: { _controller: EventsBundle:Categorie:list }
+events_ajoutcat:
+    path:     /admin/ajoutCategorie
+    defaults: { _controller: EventsBundle:Categorie:ajout }
+events_modifiercat:
+    path:     /admin/modifierCategorie/{id}
+    defaults: { _controller: EventsBundle:Categorie:modifier }
+events_supprimercat:
+    path:     /admin/supprimerCategorie/{id}
+    defaults: { _controller: EventsBundle:Categorie:supprimer }
+
+events_listeevent:
+    path:     /admin/listEvents
+    defaults: { _controller: EventsBundle:Evenement:list }
+events_ajoutevent:
+    path:     /admin/ajoutEvent
+    defaults: { _controller: EventsBundle:Evenement:ajout }
+events_modifierevent:
+    path:     /admin/modifierEvent/{id}
+    defaults: { _controller: EventsBundle:Evenement:modifier }
+events_supprimerevent:
+    path:     /admin/supprimerEvent/{id}
+    defaults: { _controller: EventsBundle:Evenement:supprimer }
+events_detailsevent:
+    path:     /admin/detailsEvent/{id}
+    defaults: { _controller: EventsBundle:Evenement:details }
+
+events_frontshow:
+    path: /user/Events
+    defaults: { _controller: EventsBundle:EvenementFront:list }
+events_ajoutrole:
+    path: /ajoutRole/{role}/{username}
+    defaults: { _controller: EventsBundle:User:ajouterRole }
