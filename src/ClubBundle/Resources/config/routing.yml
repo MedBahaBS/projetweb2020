@@ -1,0 +1,36 @@
+club_homepage:
+    path:     /
+    defaults: { _controller: ClubBundle:Default:index }
+admin:
+    path:     /admin
+    defaults: { _controller: ClubBundle:Default:index }
+admin_AjouterClub:
+    path:     /admin/ajouterclub
+    defaults: { _controller: ClubBundle:Club:ajouterclub }
+admin_AfficherClub:
+    path:     /admin/afficherclub
+    defaults: { _controller: ClubBundle:Club:afficherclub }
+delete:
+    path:     /admin/delete/{id}
+    defaults: { _controller: ClubBundle:Club:supprimerclub }
+update:
+    path:     /modifier/{id}
+    defaults: { _controller: ClubBundle:Club:modifierclub }
+admin_AfficherDon:
+    path:     /admin/afficherdon
+    defaults: { _controller: ClubBundle:Don:afficherdon }
+deletedon:
+    path:     /admin/deletedon/{id}
+    defaults: { _controller: ClubBundle:Don:supprimerdon }
+updatedon:
+    path:     /admin/modifierdon/{id}
+    defaults: { _controller: ClubBundle:Don:modifierdon }
+AfficherClubfront:
+    path:     /afficherclub
+    defaults: { _controller: ClubBundle:Club:afficherclubfront }
+admin_AjoutDon:
+    path:     /ajouterdon
+    defaults: { _controller: ClubBundle:Don:Ajouterdon }
+accueil:
+    path:     /accueil
+    defaults: { _controller: ClubBundle:Club:accueil }

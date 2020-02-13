@@ -1,0 +1,3 @@
+user_homepage:
+    path:     /homarino
+    defaults: { _controller: UserBundle:Default:index }
