@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+{% block container  %}
+
+    <widest  style="...">
+    <form method= "POST">
+        lien:<input type="text" name ="lien" value="{{ serie.lien}}"><br/>
+        nomchapitre:<input name ="nomserie" type="text" value="{{ serie.nomserie }}"><br/>
+        Description:<input type="text" name ="description"value="{{ serie.description }}"><br/>
+
+
+        <input type="submit"value="enregister">
+    </form>
+{% endblock %}

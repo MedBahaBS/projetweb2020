@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+{% block container  %}
+    <widest  style="...">
+    <form method= "POST">
+
+    niveau:<input type="text" name ="niveau" value="{{ cour.niveau }}"  ><br/>
+    matiere:<input type="text" name = "matiere" value="{{ cour.matiere }}"><br/>
+    nomch:<input type="text" name ="nomchapitre" value="{{ cour.nomchapitre }}"><br/>
+    date:<input type="date" name = "date" value="{{ cour.date|date('Y-m-d')}}"><br/>
+    email:<input type="text" name="email" value="{{ cour.email }}"><br/>
+    lien:<input type="text" name="lien" value="{{ cour.lien }}"><br/>
+
+        <input type="submit"value="enregister">
+
+    </form>
+{% endblock %}

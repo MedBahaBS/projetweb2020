@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+{% block container  %}
+
+  <table border="1">
+
+    <td>niveau</td>
+
+    {% for infos in avis %}
+      <tr>
+        <td>{{ infos.idavis }}</td>
+        <td>{{ infos.avisparent}}</td>
+        <td><a  href="{{ path ('avis_supp',{'id':infos.idavis}) }}"> suppimer </a></td>
+
+
+
+
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

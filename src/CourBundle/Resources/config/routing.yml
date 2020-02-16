@@ -1,0 +1,45 @@
+cour_homepage:
+    path:     /admin/
+    defaults: { _controller: CourBundle:Default:index }
+cour_test:
+    path:     /test
+    defaults: { _controller: CourBundle:Cour:index }
+cour_ajout:
+  path:     /admin/ajoutcour
+  defaults: { _controller: CourBundle:Cour:ajout }
+cour_list:
+  path:     /admin/listcour
+  defaults: { _controller: CourBundle:Cour:list }
+cour_modifier:
+  path:     /admin/modifiercour/{id}
+  defaults: { _controller: CourBundle:Cour:modifier}
+cour_supp:
+  path:     /admin/supprimercour/{id}
+  defaults: { _controller: CourBundle:Cour:supprimer}
+cour_listfront:
+  path:     /listcourfront
+  defaults: { _controller: CourBundle:Cour:affichefront }
+serie_ajout:
+  path:     /admin/ajoutserie
+  defaults: { _controller: CourBundle:Serie:ajout }
+serie_list:
+  path:     /admin/listserie
+  defaults: { _controller: CourBundle:Serie:list }
+serie_modifier:
+  path:     /admin/modifierserie/{id}
+  defaults: { _controller: CourBundle:Serie:modifier}
+serie_supp:
+  path:     /admin/supprimerserie/{id}
+  defaults: { _controller: CourBundle:Serie:supprimer}
+serie_listfront:
+    path:     /listseriefront
+    defaults: { _controller: CourBundle:Serie:listaffiche}
+avis_list:
+  path:     /admin/listavis
+  defaults: { _controller: CourBundle:Avis:list }
+avis_ajout:
+  path:     /admin/ajoutavis
+  defaults: { _controller: CourBundle:Avis:ajout }
+avis_supp:
+  path:     /admin/supprimeravis/{id}
+  defaults: { _controller: CourBundle:Avis:supprimer}
