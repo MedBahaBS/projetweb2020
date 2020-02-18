@@ -3,6 +3,7 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
+        ROLE_ENSEIGNANT: ROLE_USER
         ROLE_ETUDIANT: ROLE_USER
         ROLE_PARENT: ROLE_USER
         ROLE_USER: ROLE_USER

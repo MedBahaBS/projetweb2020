@@ -2,10 +2,12 @@
 
 namespace ClubBundle\Controller;
 
-use AppBundle\AppBundle;
-use AppBundle\Entity\User;
+
 use ClubBundle\Entity\Don;
 use ClubBundle\Form\DonType;
+use Swift_Mailer;
+use Swift_Message;
+use Swift_SmtpTransport;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -18,16 +20,42 @@ class DonController extends Controller
     }
     public function AjouterdonAction(Request $request)
     {
+
+        $user = $this->getUser();
+        $email=$user->getEmail();
+
         $don= new don();
+        $don->setEmail($email);
+        $don->setEtat(0);
         $form = $this->createForm(DonType::class,$don);
+
         $form=$form->handleRequest($request);
+
 
         if($form->isValid())
         {
             $em= $this->getDoctrine()->getManager();
             $em->persist($don);
             $em->flush();
-            return $this->redirectToRoute('admin_AfficherDon');
+
+            #MAIL TEST
+            $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587,'TLS'))
+                ->setUsername('alaeddinneg92@gmail.com')
+                ->setPassword('Emnabenabda28749574')
+            ;
+            // Create the Mailer using your created Transport
+            $mailer = new Swift_Mailer($transport);
+            // Create a message
+            $message = (new Swift_Message('test object'))
+                ->setFrom(['alaeddinneg92@gmail.com' => 'TEST123'])
+                ->setTo($email)
+                ->setBody('Here is the message itself')
+            ;
+            // Send the message
+            $result = $mailer->send($message);
+
+
+            return $this->redirectToRoute('admin_AfficherClub'); #change this
         }
         return $this->render('@Club/home/AjouterDon.html.twig',array('form'=>$form->createView()));
     }
@@ -52,4 +80,5 @@ class DonController extends Controller
         $em->flush();//commit
         return $this->redirectToRoute('admin_AfficherDon');
     }
+
 }

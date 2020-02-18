@@ -20,6 +20,29 @@ class Don
      */
     private $type;
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $etat;
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+    /**
      * @ORM\Column(type="integer")
      */
     private $Somme;
@@ -92,6 +115,22 @@ class Don
     public function setClub($club)
     {
         $this->club = $club;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param mixed $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
     }
 
 

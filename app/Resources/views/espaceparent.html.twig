@@ -8,7 +8,7 @@
             <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
         {% endblock %}
         <link rel="stylesheet" href="{{ asset('css/open-iconic-bootstrap.min.css') }} " >
-        <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+        <link  rel="stylesheet" href="{{ asset('css/animate.css') }}">
 
         <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="col-md pr-4 d-flex topper align-items-center">
                                     <div class="icon bg-tertiary mr-2 d-flex justify-content-center align-items-center"><span class="icon-user"></span></div>
-                                    <a href="{{ asset(path('login')) }}"><span class="text">login</span></a>
+                                    <a><span class="text">{{ user.username }}</span></a>
                                 </div>
                             </div>
                         </div>

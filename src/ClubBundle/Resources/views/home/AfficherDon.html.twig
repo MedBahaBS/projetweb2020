@@ -38,10 +38,11 @@
                                                         <thead>
                                                         <tr>
                                                             <th>ID</th>
-                                                            <th>nom Club</th>
-                                                            <th>type</th>
-                                                            <th>somme</th>
-                                                            <th> Action </th>
+                                                            <th>Nom Club</th>
+                                                            <th>Type</th>
+                                                            <th>Somme</th>
+                                                            <th>Email </th>
+                                                            <th>Etat</th>
                                                         </tr>
                                                         </thead>
                                                         <tbody>
@@ -54,9 +55,16 @@
                                                                 <td>{{ don.type }}</td>
                                                                 <td class="left">{{ don.somme }} </td>
                                                                 <td>
-                                                                    <a href="{{ path('deletedon',{'id':don.id}) }}">Supprimer</a>
-                                                                    |
-                                                                    <a href="{{ path('updatedon',{'id':don.id}) }}">Modifier</a>
+                                                                    {{ don.email }}
+                                                                </td>
+                                                                <td>
+                                                                    {% if don.etat==1 %}
+                                                                    <span class="label label-sm label-success">confirmer</span>
+                                                                    {% endif %}
+                                                                    {% if don.etat==0 %}
+                                                                        <span class="label label-sm label-danger">pas confirmer</span>
+                                                                    {% endif %}
+
                                                                 </td>
                                                             </tr>
                                                         {% endfor %}
