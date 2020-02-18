@@ -40,14 +40,14 @@ class DonController extends Controller
 
             #MAIL TEST
             $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587,'TLS'))
-                ->setUsername('alaeddinneg92@gmail.com')
-                ->setPassword('Emnabenabda28749574')
+                ->setUsername('galaeddinne@gmail.com')
+                ->setPassword('shit28749574')
             ;
             // Create the Mailer using your created Transport
             $mailer = new Swift_Mailer($transport);
             // Create a message
             $message = (new Swift_Message('test object'))
-                ->setFrom(['alaeddinneg92@gmail.com' => 'TEST123'])
+                ->setFrom(['galaeddinne@gmail.com' => 'GENIUS'])
                 ->setTo($email)
                 ->setBody('Here is the message itself')
             ;

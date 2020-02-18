@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64bed387-e830-4b64-8090-aac829e06962" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/espaceetudiant.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/espaceparent.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ClubBundle/Resources/views/home/affichernotifconfirmer.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ClubBundle/Resources/views/home/confirmer.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/ajoutdon.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/ajoutdon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubBundle/Controller/DefaultController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubBundle/Controller/DonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubBundle/Controller/DonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubBundle/Entity/Don.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubBundle/Entity/Don.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubBundle/Resources/views/home/Accueil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubBundle/Resources/views/home/Accueil.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubBundle/Resources/views/home/AfficherDon.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubBundle/Resources/views/home/AfficherDon.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubBundle/Resources/views/home/AjouterDon.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubBundle/Resources/views/home/AjouterDon.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +147,7 @@
       <workItem from="1581778651341" duration="1209000" />
       <workItem from="1581851768536" duration="2101000" />
       <workItem from="1581935446990" duration="13660000" />
-      <workItem from="1582021370836" duration="17194000" />
+      <workItem from="1582021370836" duration="17870000" />
     </task>
     <servers />
   </component>
@@ -187,25 +171,25 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1581195387428" />
-    <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1582030027910">
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1582042374223">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1582030027910" />
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1582042374223" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581254001530" />
-    <state width="1323" height="178" key="GridCell.Tab.0.center" timestamp="1582030027910">
+    <state width="1323" height="178" key="GridCell.Tab.0.center" timestamp="1582042374192">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1582030027910" />
+    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1582042374192" />
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1581254001530" />
-    <state width="1323" height="178" key="GridCell.Tab.0.left" timestamp="1582030027910">
+    <state width="1323" height="178" key="GridCell.Tab.0.left" timestamp="1582042374176">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1582030027910" />
+    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1582042374176" />
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1581254001530" />
-    <state width="1323" height="178" key="GridCell.Tab.0.right" timestamp="1582030027910">
+    <state width="1323" height="178" key="GridCell.Tab.0.right" timestamp="1582042374192">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1582030027910" />
+    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1582042374192" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581254001530" />
     <state x="517" y="296" key="NewPhpFileDialog" timestamp="1581471582464">
       <screen x="0" y="0" width="1366" height="728" />
