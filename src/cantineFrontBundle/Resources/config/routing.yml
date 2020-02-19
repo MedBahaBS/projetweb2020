@@ -1,0 +1,6 @@
+cantine_front_homepage:
+    path:     /
+    defaults: { _controller: cantineFrontBundle:Default:index }
+afficher_menu:
+    path:     /user/afficherMenuFront
+    defaults: { _controller: cantineFrontBundle:front:afficherMenu }

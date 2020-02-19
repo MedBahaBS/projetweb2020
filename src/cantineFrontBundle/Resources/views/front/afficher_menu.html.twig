@@ -1,0 +1,42 @@
+{% extends 'basefront.html.twig' %}
+{% block content %}
+
+
+    <section class="hero-wrap hero-wrap-2" style="background-image:url('/assetsFront/images/bg_1.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">Liste des Menus</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                {% for m in menu %}
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="pricing-entry bg-light pb-4 text-center">
+
+                        <div>
+                            <h1 class="mb-3" style="font-family: Impact, Charcoal, sans-serif ;color: #0f6674">{{ m.jourMenu }}</h1>
+                            {#<p><span class="price">$24.50</span> <span class="per">/ 5mos</span></p>#}
+                        </div>
+
+                            <h2>{{ m.entree.nomPlat }}</h2>
+                            <h2>{{ m.platPrincipal.nomPlat }}</h2>
+                            <h2>{{ m.dessert.nomPlat }}</h2>
+
+
+
+                    </div>
+                    </div>
+                {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
