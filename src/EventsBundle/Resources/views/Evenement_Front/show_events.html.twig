@@ -21,7 +21,8 @@
                         <h3 class="heading"><a href="#">{{ event.titre}}</a></h3>
                         <p>{{ event.description}}</p>
                         <div class="d-flex align-items-center mt-4">
-                            <p class="mb-0"><a href="#" class="btn btn-secondary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                            <p class="mb-0"><a href="{{  path('events_detailsevent', {'idevent' : event.idevenement}) }}" class="btn btn-secondary">Read More
+                                    <span class="ion-ios-arrow-round-forward"></span></a></p>
                            {#
                             <p class="ml-auto mb-0">
                                 <a href="#" class="mr-2">Admin</a>
