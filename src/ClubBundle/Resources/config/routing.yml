@@ -34,3 +34,12 @@ admin_AjoutDon:
 accueil:
     path:     /accueil
     defaults: { _controller: ClubBundle:Club:accueil }
+afficher_merci:
+    path:     /merci
+    defaults: { _controller: ClubBundle:Don:merci }
+confirmer_don:
+    path:     /confirmer
+    defaults: { _controller: ClubBundle:Don:confirmer }
+conf:
+    path:     /confirmer/conf/{id}
+    defaults: { _controller: ClubBundle:Don:conf }

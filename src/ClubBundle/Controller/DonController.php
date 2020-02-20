@@ -10,6 +10,9 @@ use Swift_Message;
 use Swift_SmtpTransport;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Twilio\Exceptions\ConfigurationException;
+use Twilio\Rest\Client;
 
 class DonController extends Controller
 {
@@ -23,7 +26,7 @@ class DonController extends Controller
 
         $user = $this->getUser();
         $email=$user->getEmail();
-
+        $email='galaeddinne@gmail.com';
         $don= new don();
         $don->setEmail($email);
         $don->setEtat(0);
@@ -40,28 +43,29 @@ class DonController extends Controller
 
             #MAIL TEST
             $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587,'TLS'))
-                ->setUsername('galaeddinne@gmail.com')
-                ->setPassword('shit28749574')
+                ->setUsername('alaeddinneg92@gmail.com')
+                ->setPassword('Emnabenabda28749574')
             ;
             // Create the Mailer using your created Transport
             $mailer = new Swift_Mailer($transport);
             // Create a message
             $message = (new Swift_Message('test object'))
-                ->setFrom(['galaeddinne@gmail.com' => 'GENIUS'])
-                ->setTo($email)
-                ->setBody('Here is the message itself')
+                ->setFrom(['alaeddinneg92@gmail.com' => 'GENIUS'])
+                ->setTo([$email => 'TEST'])
+                ->setBody($this->renderView('@Club/home/notif.html.twig'),'text/html')
             ;
             // Send the message
             $result = $mailer->send($message);
 
 
-            return $this->redirectToRoute('admin_AfficherClub'); #change this
+            return $this->redirectToRoute('afficher_merci'); #change this
         }
         return $this->render('@Club/home/AjouterDon.html.twig',array('form'=>$form->createView()));
     }
     public function ModifierdonAction(Request $request, $id)
     {
         $don=$this->getDoctrine()->getRepository(Don::class)->find($id);
+        $don->setEtat(0);
         $form=$this->createForm(DonType::class,$don);
         $form->handleRequest($request);
         if ($form->isValid()){
@@ -80,5 +84,44 @@ class DonController extends Controller
         $em->flush();//commit
         return $this->redirectToRoute('admin_AfficherDon');
     }
+    public function merciAction()
+    {
+        return $this->render('@Club/home/affichernotifconfirmer.html.twig');
+    }
+    public function confirmerAction()
+    {
+        $user = $this->getUser();
+        $email=$user->getEmail();
+        $dons=$this->getDoctrine()->getRepository(Don::class)->findBy(['email' => $email]);
+        return $this->render('@Club/home/confirmer.html.twig',array('dons'=>$dons));
+    }
+    public function confAction(Request $request,$id)
+    {
+        $don=$this->getDoctrine()->getRepository(Don::class)->find($id);
+        $don->setEtat(1);
 
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($don);
+            $em->flush();
+
+        $sid = "AC73bcf09348ce0414e8e2a3f861e1d21a";
+        $token  = "b9ef5f02093c10d6086d81d96ca25166";
+        try {
+            $twilio = new Client($sid, $token);
+        } catch (ConfigurationException $e) {
+        }
+
+        $message = $twilio->messages
+            ->create("+21623613445", // to
+                array(
+                    "body" => 'Ala',
+                    "from" => "+12025109194"
+                )
+            );
+
+
+            return $this->redirectToRoute("confirmer_don");
+
+
+    }
 }

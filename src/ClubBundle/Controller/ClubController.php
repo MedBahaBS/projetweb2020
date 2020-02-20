@@ -60,4 +60,5 @@ class ClubController extends Controller
     {
         return $this->render('@Club/home/Accueil.html.twig');
     }
+
 }

@@ -27,8 +27,10 @@ class User extends BaseUser
      * @var string
      */
     protected $prenom;
-
-
+    /**
+     * @var integer
+     */
+    protected $numtlf;
     /**
      * Get id
      *
@@ -87,5 +89,22 @@ class User extends BaseUser
     {
         return $this->prenom;
     }
+
+    /**
+     * @return int
+     */
+    public function getNumtlf()
+    {
+        return $this->numtlf;
+    }
+
+    /**
+     * @param int $numtlf
+     */
+    public function setNumtlf($numtlf)
+    {
+        $this->numtlf = $numtlf;
+    }
+
 }
 

@@ -28,6 +28,10 @@ class User extends BaseUser
      * @ORM\Column(type="string",length=255)
      */
     private $prenom;
+    /**
+     * @ORM\Column(type="string",length=255)
+     */
+    private $numtlf;
 
     /**
      * @return mixed
@@ -76,6 +80,24 @@ class User extends BaseUser
     {
         $this->id = $id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNumtlf()
+    {
+        return $this->numtlf;
+    }
+
+    /**
+     * @param mixed $numtlf
+     */
+    public function setNumtlf($numtlf)
+    {
+        $this->numtlf = $numtlf;
+    }
+
+
 
 
 

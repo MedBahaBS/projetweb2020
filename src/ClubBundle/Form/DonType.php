@@ -29,8 +29,9 @@ class DonType extends AbstractType
                 ]
             ])
             ->add('Somme')
-
+            ->add('description')
             ->add('Ajouter Club',SubmitType::class);
+
     }/**
      * {@inheritdoc}
      */

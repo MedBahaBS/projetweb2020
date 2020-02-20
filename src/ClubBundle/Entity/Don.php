@@ -3,6 +3,7 @@
 
 namespace ClubBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -17,14 +18,22 @@ class Don
     private $Id;
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(message="Le champs ne doit pas être vide")
      */
     private $type;
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(message="Le champs ne doit pas être vide")
+     */
+    private $description;
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(message="Le champs ne doit pas être vide")
      */
     private $email;
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotNull(message="Le champs ne doit pas être vide")
      */
     private $etat;
     /**
@@ -131,6 +140,22 @@ class Don
     public function setEtat($etat)
     {
         $this->etat = $etat;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
 
