@@ -1,0 +1,76 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<script type="text/javascript">
+    function visible(id1,id2) {
+        var e1 = document.getElementById(id1);
+        var e2 = document.getElementById(id2);
+        e1.hidden = true;
+        e2.hidden = false;
+    }
+</script>
+
+
+
+<div class="limiter">
+    <div class="container-login100 page-background">
+        <div class="wrap-login100">
+            <form action="{{ path("fos_user_security_check") }}" method="post" class="login100-form validate-form">
+                {% if csrf_token %}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                {% endif %}
+                <span class="login100-form-logo">
+						<img alt="" src="{{asset('assets/img/logo-2.png')}}">
+					</span>
+                <span class="login100-form-title p-b-34 p-t-27">
+						S'authentifier
+					</span>
+                <div class="wrap-input100 validate-input" data-validate="Enter username">
+                    <span class="fa fa-user" data-placeholder="&#xf207;"></span>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required"
+                           autocomplete="username"
+                           class="input100"
+                           placeholder="Nom d'utilisateur" />
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                    <span class="fa fa-lock" data-placeholder="&#xf191;"></span>
+                    <input type="password" id="password" name="_password" required="required" autocomplete="current-password"
+                           class="input100"
+                           placeholder="Mot de passe"/>
+                </div>
+
+                <div class="container-login1000-form-btn" >
+                    <input type="submit" id="_submit" name="_submit" value="CONNEXION" class="login100-form-btn"/></br>
+
+                    <span class="login100-form-title p-b-34 p-t-27">
+				 <p class="message">Pas encore inscrit sur Genius?</br>Créer votre compte:</br>
+                     <a href="{{ path('fos_user_registration_register') }}">en tant que Parent</a></br>
+                     <a href="{{ path('fos_user_registration_register2') }}"> en tant que Eleve</a></br>
+                     <a href="{{ path('fos_user_registration_register1') }}"> en tant que Enseignant</a></p>
+					</span>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{#<div id="choix" hidden="true">#}
+{#    <div style="text-align: center;margin-top: 8%;margin-bottom: 8%;">#}
+{#        <a href="{{ path('fos_user_registration_register') }}" style="" class="test">#}
+{#            <img src="{{ asset('img/parent.png') }}" alt="" style="margin-right: 40px;width: 20%;">#}
+{#        </a>#}
+{#        <a href="{{ path('fos_user_registration_register2') }}" style="" class="test">#}
+{#            <img src="{{ asset('img/eleve.png') }}" alt="" style="margin-right: 40px;width: 20%;">#}
+{#        </a>#}
+{#        <a href="{{ path('fos_user_registration_register1') }}" style="" class="test">#}
+{#            <img src="{{ asset('img/enseignant.png') }}" alt="" style="margin-left: 40px;width: 20%;">#}
+{#        </a>#}
+{#    </div>#}
+{#</div>#}

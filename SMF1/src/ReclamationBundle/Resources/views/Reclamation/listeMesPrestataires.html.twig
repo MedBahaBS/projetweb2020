@@ -1,0 +1,68 @@
+{% extends "@Main/Default/index.html.twig" %}
+{% block content %}
+
+
+{% block body %}
+        <div class="container">
+        <center><h1>Les Prestataires</h1></center>
+            <div class="container" style="background-color: black">
+
+                <h3 style="text-align: center;"> Trouver un Prestataire par Nom ou par Titre</h3>
+
+                <div class="widget">
+                    <form action="recherchePrestataire" method="post" role="form">
+                        <div class="col-md-13">
+
+                                <input class="form-control" type="text" placeholder="Entrez le nom ici">
+
+
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-success btn-block" type="submit">
+                                <i class="fa fa-search">
+                                </i>
+                            </button>
+                        </div>
+                    </form>
+<br>
+
+
+                    <form action="rechercheService" method="post" role="form">
+                        <div class="col-md-13">
+
+                                <input class="form-control" type="text" placeholder="Entrez le titre ici">
+
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-success btn-block" type="submit" >
+                                <i class="fa fa-search" >
+                                </i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <br>
+
+           {% for u in users %}
+               {% if u.titre!=null %}
+                    <b>Nom: </b>{{ u.username }} <br>
+                    <b>Email : </b>{{ u.email }} <br>
+                    <b> </b>
+                    <a class="btn btn-success" href="{{ path('ajouterReclamationUser',{ 'id':u.id }) }}">Réclamation</a><br>
+                    <b>Evaluer : </b>
+                    <font size="6px" color=lime>
+                        <a href="{{ path('ajouterEvaluation', { 'id':u.id , 'nbr':1 }) }}">&#9734</a>
+                        <a href="{{ path('ajouterEvaluation', { 'id':u.id , 'nbr':2 }) }}">&#9734</a>
+                        <a href="{{ path('ajouterEvaluation', { 'id':u.id , 'nbr':3 }) }}">&#9734</a>
+                        <a href="{{ path('ajouterEvaluation', { 'id':u.id , 'nbr':4 }) }}">&#9734</a>
+                        <a href="{{ path('ajouterEvaluation', { 'id':u.id , 'nbr':5 }) }}">&#9734</a>
+                    </font>
+                    <br><br>
+               {% endif %}
+            {% endfor %}
+        </div>
+{% endblock %}
+{% endblock %}

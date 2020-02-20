@@ -1,0 +1,47 @@
+scolarite_homepage:
+    path:     /
+    defaults: { _controller: ScolariteBundle:Default:index }
+
+scolarite_readm:
+    path:     /afficherM
+    defaults: { _controller: ScolariteBundle:Matiere:readm }
+
+scolarite_ajoutm:
+    path:     /ajoutM
+    defaults: { _controller: ScolariteBundle:Matiere:ajoutM }
+
+scolarite_delete:
+    path:     /delete/{idmatiere}
+    defaults: { _controller: ScolariteBundle:Matiere:delete }
+
+scolarite_modifier:
+    path:     /modifier/{idmatiere}
+    defaults: { _controller: ScolariteBundle:Matiere:modifier }
+
+scolarite_readn:
+    path:     /afficherN
+    defaults: { _controller: ScolariteBundle:Note:readn }
+
+scolarite_ajoutn:
+    path:     /ajoutN
+    defaults: { _controller: ScolariteBundle:Note:ajoutn }
+
+scolarite_modifiern:
+    path:     /modifiern/{idnote}
+    defaults: { _controller: ScolariteBundle:Note:modifiern }
+
+scolariteajoutfrontn:
+    path:     /ajoutfrontN
+    defaults: { _controller: ScolariteBundle:Note:ajoutfrontn }
+
+scolaritereadfrontn:
+    path:     /afficherfrontN
+    defaults: { _controller: ScolariteBundle:Note:readfrontn }
+
+scolarite_modifierfrontn:
+    path:     /modifierfrontn/{idnote}
+    defaults: { _controller: ScolariteBundle:Note:modifierfrontn }
+
+
+
+

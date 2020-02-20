@@ -1,0 +1,15 @@
+fixit_user_homepage:
+    path:     /
+    defaults: { _controller: MainBundle:Default:index }
+    
+
+fixit_admin_homepage:
+    path:     /admin
+    defaults: { _controller: MainBundle:Default:admin }
+
+
+creer_votre_compte:
+    path:     /creationcompte
+    defaults: { _controller: MainBundle:Default:creationcompte }
+
+

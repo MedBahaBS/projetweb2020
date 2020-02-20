@@ -1,0 +1,44 @@
+{% extends "@Main/Default/index.html.twig" %}
+{% block content %}
+
+
+{% block body %}
+<div class="container">
+    <center><h1>Les Pestataires</h1></center>
+    <div class="container" style="background-color: black">
+        <h3 style="text-align: center;"> Trouver un Prestataire par Titre</h3>
+        <div class="widget">
+            <form action="rechercheService" method="post" role="form">
+                <div class="col-md-13">
+
+                        <input class="form-control" type="text" placeholder="Entrez le titre ici">
+
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-success btn-block" type="submit">
+                        <i class="fa fa-search">
+                        </i>
+                    </button>
+                </div>
+                <a class="btn btn-success" href="{{ path('listeMesPrestataires') }}" style="float: right"> Retour </a>
+            </form>
+        </div>
+
+
+
+    </div> <br>
+
+        <div class="container">
+        {% for u in users %}
+            {% if u.titre !=null %}
+                Nom : {{ u.username }} <br>
+                Email: {{ u.email }} <br>
+
+                <a class="btn btn-success" href="#">Réclamation</a>
+                <br><br>
+            {% endif %}
+        {% endfor %}
+        </div>
+</div>
+{% endblock %}
+{% endblock %}

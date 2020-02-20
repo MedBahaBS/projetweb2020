@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="54fbb06c-5c4a-43c2-80b0-bfc22b03ca45" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/SMF1/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FrameworkCommandLineHistory">
+    <commandsHistory>
+      <command text="s doctrine:schema:update --force" />
+      <command text="s cache:clear" />
+      <command text="c clear-cache" />
+      <command text="s doctrine:schema:update --force" />
+    </commandsHistory>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/SMF1/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/sensio/distribution-bundle" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/symfony/polyfill-apcu" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/symfony/symfony" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/twig/extensions" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/cmen/google-charts-bundle" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/composer" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/incenteev/composer-parameter-handler" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/knplabs/knp-snappy" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/knplabs/knp-snappy-bundle" />
+      <path value="$PROJECT_DIR$/SMF1/vendor/monolog/monolog" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1XlICpcbnCQKup55cdUqdqkHhJa" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SMF1/src" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SMF1\SMF1\src" />
+      <recent name="C:\wamp64\www\SMF1\SMF1\src\GestionBundle\Resources\views" />
+      <recent name="C:\wamp64\www\SMF1\SMF1\app\Resources\views\default" />
+      <recent name="C:\wamp64\www\SMF1\SMF1\src\MainBundle\Resources\views\Default" />
+      <recent name="C:\wamp64\www\SMF1\SMF1\src\GestionBundle\Resources\views\Reclamation" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SMF1\SMF1\src\ScolariteBundle\Resources\views\Matiere" />
+      <recent name="C:\wamp64\www\SMF1\SMF1\app\Resources\views" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="s doctrine:generate:form ScolariteBundle:Matiere" />
+      <command value="s doctrine:generate:form ScolariteBundle:Note" />
+      <command value="s doctrine:database:create" />
+      <command value="s doctrine:generate:form GestionBundle:Classe" />
+      <command value="s doctrine:generate:form GestionBundle:Reclamation" />
+      <command value="c clear-cache" />
+      <command value="s cache:clear" />
+      <command value="s generate:bundle" />
+      <command value="s doctrine:schema:update --force" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="54fbb06c-5c4a-43c2-80b0-bfc22b03ca45" name="Default Changelist" comment="" />
+      <created>1557497685234</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1557497685234</updated>
+      <workItem from="1557497686758" duration="81000" />
+      <workItem from="1557497945570" duration="142000" />
+      <workItem from="1557505860069" duration="24000" />
+      <workItem from="1557508718012" duration="1745000" />
+      <workItem from="1558444261149" duration="43000" />
+      <workItem from="1558788958397" duration="10259000" />
+      <workItem from="1564608708285" duration="548000" />
+      <workItem from="1565278260165" duration="1327000" />
+      <workItem from="1565362614149" duration="541000" />
+      <workItem from="1565831061049" duration="1002000" />
+      <workItem from="1567193800693" duration="19000" />
+      <workItem from="1567199266916" duration="11378000" />
+      <workItem from="1567216230927" duration="13000" />
+      <workItem from="1567463804445" duration="3142000" />
+      <workItem from="1570641292692" duration="170000" />
+      <workItem from="1576861486847" duration="49000" />
+      <workItem from="1581614133745" duration="4822000" />
+      <workItem from="1581619564112" duration="374000" />
+      <workItem from="1581619962618" duration="23000" />
+      <workItem from="1581620054859" duration="4324000" />
+      <workItem from="1581777804232" duration="18302000" />
+      <workItem from="1581987043078" duration="51000" />
+      <workItem from="1581987114455" duration="13646000" />
+      <workItem from="1582046505312" duration="4244000" />
+      <workItem from="1582062387706" duration="4690000" />
+      <workItem from="1582068540734" duration="4744000" />
+      <workItem from="1582117371995" duration="6518000" />
+      <workItem from="1582124108507" duration="1855000" />
+      <workItem from="1582126167749" duration="10846000" />
+      <workItem from="1582159727713" duration="3847000" />
+      <workItem from="1582163769108" duration="21000" />
+      <workItem from="1582187376976" duration="6201000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/SMF1/src/ScolariteBundle/Controller/MatiereController.php</url>
+          <line>24</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

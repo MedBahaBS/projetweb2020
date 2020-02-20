@@ -1,0 +1,3 @@
+pdf:
+    path:     /Reclamation/pdf
+    defaults: { _controller: PdfBundle:Pdf:pdf }

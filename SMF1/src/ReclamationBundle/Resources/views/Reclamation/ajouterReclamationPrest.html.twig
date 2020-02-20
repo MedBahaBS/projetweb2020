@@ -1,0 +1,122 @@
+{% extends "@Main/Default/index.html.twig" %}
+
+{% block content %}
+ {#   <link rel="stylesheet" href="{{ asset('jquery.datetimepicker.css') }}">
+    <script src="{{ asset('jquery.datetimepicker.js') }}"></script>
+    <script src="{{ asset('jquery.js') }}"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>#}
+
+    {#<link  href="{{ asset('css/signUp.css') }}" rel="stylesheet"></link>#}
+
+
+    <!-- PLUGINS CSS STYLE -->
+    <link href="{{ asset('urrform/plugins/jquery-ui/jquery-ui.css') }}" rel="stylesheet">
+    <link href="{{ asset('urrform/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('urrform/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('urrform/plugins/rs-plugin/css/settings.css') }}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ asset('urrform/plugins/selectbox/select_option1.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('urrform/plugins/owl-carousel/owl.carousel.css') }}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ asset('urrform/plugins/isotope/jquery.fancybox.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('urrform/plugins/isotope/isotope.css') }}">
+
+    <!-- GOOGLE FONT -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Dosis:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <!-- CUSTOM CSS -->
+    <link href="{{ asset('urrform/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('urrform/css/default.css') }}" id="option_color">
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="{{ asset('urrform/img/favicon.png') }}">
+
+
+    <script src="{{ asset('urrform/plugins/jquery/jquery-min.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/jquery-ui/jquery-ui.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/selectbox/jquery.selectbox-0.1.3.min.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/owl-carousel/owl.carousel.js') }}"></script>
+    <script src="{{ asset('ajax/libs/waypoints/2.0.3/waypoints.min.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/counter-up/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/isotope/isotope.min.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/isotope/jquery.fancybox.pack.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/isotope/isotope-triger.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/countdown/jquery.syotimer.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/velocity/velocity.min.js') }}"></script>
+    <script src="{{ asset('urrform/plugins/smoothscroll/SmoothScroll.js') }}"></script>
+    <script src=" {{ asset('urrform/js/custom.js') }}"></script>
+
+
+
+    {%block core%}
+
+        <section >
+        <div class="container">
+        <div class="sectionTitle text-center">
+            <h2>
+                <span class="shape shape-left bg-color-4"></span>
+                <span style="color: black">Réclamation</span><br>
+                <span ><a href="{{ path('fixit_user_homepage') }}" style="color: #21a117">Acceuil</a></span>
+                <span class="shape shape-right bg-color-4"></span>
+            </h2>
+
+
+        </div>
+
+        <h3 class="text-center" style="color: #21a117">Rédiger une réclamation</h3>
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div >
+
+                    <form method="POST" >
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <input type="number" class="form-control border-color-4" id="exampleInputEmail3" placeholder="Téléphone" required name="phone">
+                            </div>
+                            <div class="form-group">
+                                <i class="fa fa-book" aria-hidden="true"></i>
+                                <input type="text" class="form-control border-color-4" id="exampleInputEmail4" placeholder="Objet" required name="short">
+                            </div>
+
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <select name="sujet" class="form-control border-color-4" id="exampleInputEmail4" placeholder="Nature de réclamation" name="Sujet" required>
+                                        <option  >Nature de réclamation</option>
+                                        <option>Retard</option>
+                                        <option>Temps</option>
+                                        <option>Absence</option>
+                                        <option>Payement</option>
+                                        <option>Autre</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <i class="fa fa-comments" aria-hidden="true" ></i>
+                                    <textarea class="form-control border-color-4" placeholder="Description" name="desc" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <div class="formBtnArea">
+                                    <button type="submit" class="btn btn-success" >Envoyer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    {% endblock %}
+{% endblock %}

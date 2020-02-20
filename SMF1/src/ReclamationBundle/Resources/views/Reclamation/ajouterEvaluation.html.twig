@@ -1,0 +1,15 @@
+{% extends "@Main/Default/index.html.twig" %}
+
+{% block content %}
+    <link  href="{{ asset('css/signUp.css') }}" rel="stylesheet"></link>
+{% block body %}
+    <center>
+        <div class="login-page">
+<h1> Ajouter un Commentaire </h1>
+            <div class="form">
+    {{ form(form) }}
+            </div>
+        </div>
+    </center>
+{% endblock %}
+{% endblock %}

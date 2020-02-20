@@ -1,0 +1,100 @@
+reclamation_homepage:
+    path:     /
+    defaults: { _controller: ReclamationBundle:Default:index }
+
+afficherReclamationUser:
+    path:     /afficherReclamationUser
+    defaults: { _controller: ReclamationBundle:Reclamation:afficherReclamationUser }
+
+ajouterReclamationUser:
+    path:     /ajouterReclamationUser
+    defaults: { _controller: ReclamationBundle:Reclamation:ajouterReclamationUser }
+
+ajouterReclamationUser_type2:
+    path:     /ajouterReclamationUser_type2
+    defaults: { _controller: ReclamationBundle:Reclamation:ajouterReclamationUser_type2 }
+
+ajouterReclamationUser_type2_prest:
+    path:     /ajouterReclamationUser_type2_prest
+    defaults: { _controller: ReclamationBundle:Reclamation:ajouterReclamationUser_type2_prest }
+
+statistique_reclamation:
+    path:     /admin/statistique_reclamation
+    defaults: { _controller: ReclamationBundle:Reclamation:statistique_reclamation }
+
+
+
+
+
+listeMesPrestataires:
+    path:     /listeMesPrestataires
+    defaults: { _controller: ReclamationBundle:Reclamation:listeMesPrestataires }
+
+recherchePrestataire:
+    path:     /recherchePrestataire
+    defaults: { _controller: ReclamationBundle:Reclamation:recherchePrestataire }
+
+rechercheService:
+    path:     /rechercheService
+    defaults: { _controller: ReclamationBundle:Reclamation:rechercheService }
+
+ajouterEvaluation:
+    path:     /ajouterEvaluation
+    defaults: { _controller: ReclamationBundle:Reclamation:ajouterEvaluation }
+
+afficherEvaluation:
+    path:     /afficherEvaluation
+    defaults: { _controller: ReclamationBundle:Reclamation:afficherEvaluation }
+
+ListR:
+    path:     /Affichage
+    defaults: { _controller: ReclamationBundle:Reclamation:show }
+
+ListR_Admin:
+    path:     /admin/Affichage
+    defaults: { _controller: ReclamationBundle:Reclamation:show_Admin }
+
+Consulter_archive:
+    path:     /admin/Affichage_Archive
+    defaults: { _controller: ReclamationBundle:Reclamation:show_Admin_Archive }
+
+
+
+traiter_reclamation:
+    path:     /admin/adminTraiter_Réclamation/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:admin_traiter_reclamation }
+
+details_reclamtions:
+    path:     /index/details_reclamtions/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:details_reclamtions }
+
+supprimer_reclamtions_membre:
+    path:     /index/supprimer_reclamtions_membre/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:supprimer_reclamtions_membre }
+
+supprimer_reclamtions_membre_admin:
+    path:     /admin/supprimer_reclamtions_membre_admin/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:supprimer_reclamtions_membre_admin }
+
+passer_en_jugement:
+    path:     /admin/passer_en_jugement/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:passer_en_jugement }
+
+modifier_reclamtions_membre:
+    path:     /index/modifier_reclamtions_membre/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:modifier_reclamtions_membre }
+
+reclamation_update:
+  path:     /index/{id}/reclamation_update
+  defaults: { _controller: ReclamationBundle:Reclamation:update }
+  requirements: { _method: post|put }
+
+score_update:
+    path:     /admin/{id}/score_update
+    defaults: { _controller: ReclamationBundle:Reclamation:update_score }
+    requirements: { _method: post|put }
+
+after_ur_modify:
+  path:     /index/after_ur_modify
+  defaults: { _controller: ReclamationBundle:Reclamation:index2 }
+

@@ -1,0 +1,76 @@
+{% extends "@Main/Default/index.html.twig" %}
+{% block content  %}
+
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="card card-box">
+                <div class="card-head">
+                    <header><h1><center>Ajouter une réclamation</center></h1></header>
+
+
+                </div>
+                {{ form_start(form) }}
+
+                <div class="card-body" id="bar-parent">
+                    <form action="#" id="form_sample_1" class="form-horizontal">
+
+                        <div class="form-body" >
+                            <div class="form-group row">
+
+                                date reclamation        <span class="required"> *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+
+                                {{ form_widget( form.dateReclamation, {'attr' : {'class':'col-md-5 form-control input-height'}}) }}
+
+                            </div>
+                            <div class="form-group row">
+
+                                Type de la reclamation  <span class="required"> *&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                                {{ form_widget( form.typeReclamation, {'attr' : {'class':'col-md-5 form-control input-heigh'}}) }}
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+
+                            Contenu de la reclamation   <span class="required"> *&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                            {{ form_widget( form.contenuReclamation, {'attr' : {'class':'col-md-5 form-control input-heigh'}}) }}
+
+
+                        </div>
+                </div>
+
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="offset-md-3 col-md-9">
+                            <button type="submit"
+                                    class="btn btn-info m-r-20">Ajouter</button>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

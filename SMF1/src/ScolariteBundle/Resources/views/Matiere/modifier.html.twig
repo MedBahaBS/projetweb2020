@@ -1,0 +1,19 @@
+{% extends 'baseback.html.twig' %}
+{% block container %}
+    <html>
+    <head>
+
+    </head>
+    <body>
+    <h1>faire la modification de la matiére : </h1>
+    <form method="post">
+        Nom: <input type="text" name="nom" value="{{ matiere.nom }}"></br>
+        Nombre de seance: <input type="text" name="nbrseance" value="{{ matiere.nbrseance }}"></br>
+        Description: <input type="text" name="description" value="{{ matiere.description }}"></br>
+        Coéfficient: <input type="text" name="coefficient" value="{{ matiere.coefficient }}"></br>
+        <input type="submit" value="modifier">
+    </form>
+    </body>
+
+    </html>
+{% endblock %}

@@ -1,0 +1,326 @@
+{% extends "@Main/Default/index.html.twig" %}
+{% block content %}
+{%block core%}
+
+    <link rel="stylesheet" href="{{ asset('back2/back/dist/css/AdminLTE.min.css') }}">
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+        $(document).ready(function(){
+
+
+
+            $("#successMessage").delay(3000).slideUp(300);
+
+
+
+        });
+
+
+
+
+    </script>
+
+    <script language="javascript" type="text/javascript" src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js') }}"></script>
+
+
+
+
+   {# <div class="content-wrapper">#}
+        <!-- Content Header (Page header) -->
+    <section class="content-header">
+
+        {% for msg in app.session.flashbag.get('notice1') %}
+            <div class="alert alert-{{ msg.type }}" id="successMessage">
+                <strong>{{ msg.title }}</strong><br/>{{ msg.message }}
+            </div>
+        {% endfor %}
+
+        {% for msg in app.session.flashbag.get('notice2') %}
+            <div class="alert alert-{{ msg.type }}" id="successMessage">
+                <strong>{{ msg.title }}</strong><br/>{{ msg.message }}
+            </div>
+        {% endfor %}
+
+    </section>
+        <section class="content">
+            <div class="widget">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-green"><i class="fa fa-users"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Nombre Réclamations  </span>
+                            <span class="info-box-number">{{ nb }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+
+                            <h3 class="box-title">Mes réclamations</h3>
+                            {#<button id="target" type="submit" class="btn btn-default"><i class="fa fa-tripadvisor "></i> Trier par date</button>#}
+                            <div class="box-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+
+                                    <input type="text" id="myInput" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table  table-hover">
+                                <tr >
+
+
+                                    {#<th>Objet</th>#}
+                                    <th>Nature de réclamation</th>
+                                    <th>Description</th>
+
+                                    <th>La Date de réclamation</th>
+                                    <th>Téléphone</th>
+                                    <th>Statut</th>
+                                 {#   <th>Réclamation contre </th>#} {#------------------ partie admin ------------------#}
+                                    <th>Détails</th>
+                                    <th>Modifier</th>
+                                    <th>Supprimer</th>
+                                    {#<th>Télécharger</th>#}
+                                </tr>
+                                <tbody id="myTable">
+                                {% for reclamtions in reclamtions %}
+                                    <tr>
+
+
+                                        {#<td>{{ reclamtions.short_descr }}</td>#}
+                                        <td>{{ reclamtions.natureReclamation }}</td>
+                                        <td>{{ reclamtions.description }}</td>
+                                        <td>{{ reclamtions.date | date ('Y-m-d H:i:s') }}</td>
+                                        {#<td>{{ reclamtions.date |localizeddate('none', 'none', 'fr_FR', null, 'd MMMM Y à HH:mm')}}</td>#}
+                                        <td>{{ reclamtions.phone}}</td>
+                                       {# <td>{{ reclamtions.idSalle.nom}}</td>#}
+
+                                        {% if  reclamtions.etat=="Traitée" %}
+                                            <td ><span class="label label-success">{{ reclamtions.etat }}</span></td>
+                                        {% endif %}
+                                        {% if reclamtions.etat=="En attente" %}
+                                            <td><span class="label label-danger">{{ reclamtions.etat }}</span></td>
+                                        {% endif %}
+
+
+
+                                        <td>
+                                            <a href="" class="tooltip-test" data-placement="top" title="" data-toggle="modal" data-target="#myModal{{ reclamtions.id }}"><span class="fa fa-info-circle " aria-hidden="true"></span></a>
+                                            <div class="modal fade" id="myModal{{ reclamtions.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+
+                                                            <h4 class="modal-title" id="myModalLabel"> les Informations :</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+
+                                                                <div style="overflow-x:auto;">
+
+                                                                    <table class="table table-bordered table-striped">
+
+                                                                        <tr><th width="30%">Nature de réclamation</th> <td>{{ reclamtions.natureReclamation }}</td></tr>
+                                                                        <tr><th>Description</th><td> {{ reclamtions.description }}</td></tr>
+                                                                        <tr><th>La Date de réclamation</th> <td>{{ reclamtions.date | date ('Y-m-d H:i:s') }}</td></tr>
+                                                                        <tr><th>Téléphone</th> <td>{{ reclamtions.phone}}</td></tr>
+                                                                        <tr><th>Statut</th> <td>{{ reclamtions.etat}}</td></tr>
+
+                                                                    </table>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+
+
+                                        <td>
+                                            {{ render(controller('ReclamationBundle:Reclamation:edit_my_reclamation',{'id': reclamtions.id})) }}
+                                        </td>
+
+
+
+                                        <td>
+
+                                            <a href="" class="tooltip-test" data-placement="top" title="" data-original-title="Supprimer" data-toggle="modal" data-target="#deleteModal{{ reclamtions.id }}">
+                                                <span class="fa fa-trash-o" aria-hidden="true"></span>  </a>
+                                            <div class="modal fade" id="deleteModal{{ reclamtions.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+
+                                                            <h4 class="modal-title">Comfirmation de suppression :</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p><span>Voulez-vous vraiment supprimer <b>  {{ reclamtions.id }} </b> ? </span></p>
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default " data-dismiss="modal">Annuler</button>
+                                                            <a href="{{ path ('supprimer_reclamtions_membre',{'id': reclamtions.id}) }}" data-toggle="modal" class="btn btn-danger" id="lien">Supprimer</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+
+
+                                        {#<button id="target" type="submit" class="btn btn-default"><i class="fa fa-tripadvisor "></i> Trier par date</button>#}
+
+                                        {#<td><a href="{{ path('supprimer_reclamtions_membre',{'id':reclamtions.id}) }}"  ><i class="fa fa-edit"></i></a></td>#}
+                                        {#<td><a href="{{ path('supprimer_reclamtions_membre',{'id':reclamtions.id}) }}" data-confirm="Etes-vous certain de vouloir supprimer?" ><i class="fa fa-trash-o"></i></a></td>#}
+                                        {#<span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>#}
+                                         <td><a href="{{ path('pdf',{'id':reclamtions.id}) }}">Télécharger en pdf</a></td>
+
+                                        {#class="glyphicon glyphicon-info-sign"#}
+                                    </tr> {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+                </div>
+            </div>
+
+        </section>
+        <!-- /.content -->
+  {#  </div>#}
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,42 @@
+pdf:
+    resource: "@PdfBundle/Resources/config/routing.yml"
+    prefix:   /pdf
+
+reclamation:
+    resource: "@ReclamationBundle/Resources/config/routing.yml"
+    prefix:   /reclamation
+
+gestion:
+    resource: "@GestionBundle/Resources/config/routing.yml"
+    prefix:   /gestion
+
+scolarite:
+    resource: "@ScolariteBundle/Resources/config/routing.yml"
+    prefix:   /scolarite
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+
+
+main:
+    resource: "@MainBundle/Resources/config/routing.yml"
+    prefix:   /home
+
+
+
+
+
+
+acceuil:
+    path:   /
+    defaults:  { _controller: AppBundle:Default:index }
+
+
+
+
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+    

@@ -1,0 +1,51 @@
+gestion_homepage:
+    path:     /
+    defaults: { _controller: MainBundle:Default:index }
+
+gestion_index1:
+    path:     /gestion
+    defaults: { _controller: GestionBundle:Default:index1 }
+
+gestion_afficheC:
+    path: /afficheC
+    defaults: { _controller: GestionBundle:Classe:afficheC }
+
+statistique_reclamation:
+    path: /admin/statistique_reclamation
+    defaults: { _controller: GestionBundle:Reclamation:statistique_reclamation }
+
+gestion_ajouterC:
+    path: /ajouterC
+    defaults: { _controller: GestionBundle:Classe:ajouterC }
+
+gestion_modifierC:
+    path: /modifierC/{id}
+    defaults: { _controller: GestionBundle:Classe:modifierC }
+
+gestion_deleteC:
+    path: /deleteC/{id}
+    defaults: { _controller: GestionBundle:Classe:deleteC }
+
+gestion_afficheR:
+    path: /afficheR
+    defaults: { _controller: GestionBundle:Reclamation:afficheR }
+
+gestion_afficheRfront:
+    path: /afficheRfront
+    defaults: { _controller: GestionBundle:Reclamation:afficheRfront }
+
+gestion_ajouterR:
+    path: /ajouterR
+    defaults: { _controller: GestionBundle:Reclamation:ajouterR }
+
+gestion_modifierR:
+    path: /modifierR
+    defaults: { _controller: GestionBundle:Reclamation:modifierR }
+
+gestion_deleteR:
+    path: /deleteR/{id}
+    defaults: { _controller: GestionBundle:Reclamation:deleteR }
+
+gestion_deleteRfront:
+    path: /deleteRfront/{id}
+    defaults: { _controller: GestionBundle:Reclamation:deleteRfront }

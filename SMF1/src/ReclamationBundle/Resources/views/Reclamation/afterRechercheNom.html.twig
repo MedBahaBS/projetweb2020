@@ -1,0 +1,72 @@
+{% extends "@Main/Default/index.html.twig" %}
+{% block content %}
+
+
+{% block body %}
+<div class="container">
+    <center><h1>Les Pestataires</h1></center>
+    <div class="container" style="background-color: black">
+        <h3 style="text-align: center;"> Trouver un Prestataire par Nom</h3>
+        <div class="widget">
+            <form action="recherchePrestataire" method="post" role="form">
+                <div class="col-md-13">
+
+                    <input class="form-control" type="text" placeholder="Entrez le nom ici">
+
+
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-success btn-block" type="submit">
+                        <i class="fa fa-search">
+                        </i>
+                    </button>
+                </div>
+                <a class="btn btn-success" href="{{ path('listeMesPrestataires') }}" style="float: right"> Retour </a>
+            </form>
+        </div>
+    </div> <br>
+
+    <div class="container">
+        {% for u in users %}
+            {% if u.titre != null %}
+                Nom: {{ u.username }} <br>
+                Email: {{ u.email }} <br>
+
+                <a class="btn btn-success" href="{{ path('ajouterReclamationUser',{ 'id':u.id }) }}">Réclamation</a>
+                <br><br>
+
+
+        {% for e in evaluations %}
+
+            {% if e.target.titre!=null  %}
+               {% if e.target_id == u.id %}
+
+                <font size="6px" color=lime>
+                    {% if e.nbrEtoiles == 1 %}
+                        &#9733 &#9734 &#9734 &#9734 &#9734
+                    {% endif %}
+                    {% if e.nbrEtoiles == 2 %}
+                        &#9733 &#9733 &#9734 &#9734 &#9734
+                    {% endif %}
+                    {% if e.nbrEtoiles == 3 %}
+                        &#9733 &#9733 &#9733 &#9734 &#9734
+                    {% endif %}
+                    {% if e.nbrEtoiles == 4 %}
+                        &#9733 &#9733 &#9733 &#9733 &#9734
+                    {% endif %}
+                    {% if e.nbrEtoiles == 5 %}
+                        &#9733 &#9733 &#9733 &#9733 &#9733
+                    {% endif %}
+                </font>
+                <br><br>
+
+               {% endif %}
+            {% endif %}
+        {% endfor %}
+
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+{% endblock %}
