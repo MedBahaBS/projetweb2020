@@ -1,0 +1,66 @@
+{% extends '@Events/Base_backend/base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
+{% endblock %}
+{% block title %}
+     Calendrier
+{% endblock %}
+{% block navbar %}
+    <li class="nav-item active open">
+        <a href="{{ path('events_listeevent')}}" class="nav-link nav-toggle">
+            <span class="title">Evenements</span><span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item active">
+                <a href="{{ path('events_accueil') }}" class="nav-link"> <span class="title">
+												Calendrier</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ path('events_listeevent') }}" class="nav-link "> <span class="title">
+												Liste des événements</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ path('events_listeeventpending') }}" class="nav-link "> <span class="title">Evénements en attente</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ path('events_listecategorie') }}" class="nav-link "> <span class="title">Liste des catégories</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+{% endblock %}
+{% block content %}
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <div class="page-bar">
+                    <div class="page-title-breadcrumb">
+                        <div class=" pull-left">
+                            <div class="page-title">Calendrier</div>
+                        </div>
+                        <ol class="breadcrumb page-breadcrumb pull-right">
+                            <li><i class="fa fa-home"></i>&nbsp;
+                                <a class="parent-item"
+                                   href="">Accueil</a>&nbsp;
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li class="active">Calendrier</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 col-sm-12">
+                         {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js') }}"></script>
+{% endblock %}
