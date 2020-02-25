@@ -1,0 +1,122 @@
+{% extends 'basefront.html.twig' %}
+{% block content %}
+
+
+    <section class="hero-wrap hero-wrap-2" style="background-image:url('/assetsFront/images/bg_1.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">Liste des Menus</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+
+        <div class="container">
+            <div class="row">
+                {% for m in menu %}
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="pricing-entry bg-light pb-4 text-center">
+
+                        <div>
+                            <h1 class="mb-3" style="font-family: Impact, Charcoal, sans-serif ;color: #0f6674">{{ m.jourMenu }}</h1>
+                            {#<p><span class="price">$24.50</span> <span class="per">/ 5mos</span></p>#}
+                        </div>
+
+                            <h2>{{ m.entree.nomPlat }}</h2>
+                            <h2>{{ m.platPrincipal.nomPlat }}</h2>
+                            <h2>{{ m.dessert.nomPlat }}</h2>
+                        <a href="{{ path('ajouterUneEtoile',{'id':m.id,'nombre':1}) }}"><img src="{{ asset('/assetsfront/images/etoile vide.svg') }}" width="25px" height="25px" class="etoileVide1"></a>
+                        <a href="{{ path('ajouterUneEtoile',{'id':m.id,'nombre':2}) }}"><img src="{{ asset('/assetsfront/images/etoile vide.svg') }}" width="25px" height="25px" class="etoileVide2"></a>
+                        <a href="{{ path('ajouterUneEtoile',{'id':m.id,'nombre':3}) }}"><img src="{{ asset('/assetsfront/images/etoile vide.svg') }}" width="25px" height="25px" class="etoileVide3"></a>
+                        <a href="{{ path('ajouterUneEtoile',{'id':m.id,'nombre':4}) }}"><img src="{{ asset('/assetsfront/images/etoile vide.svg') }}" width="25px" height="25px" class="etoileVide4"></a>
+                        <a href="{{ path('ajouterUneEtoile',{'id':m.id,'nombre':5}) }}"><img src="{{ asset('/assetsfront/images/etoile vide.svg') }}" width="25px" height="25px" class="etoileVide5"></a>
+                        <br>
+                    </div>
+                    </div>
+                    <button class="btn btn-secondary px-4 py-3 mt-3"><a href="{{ path('ajouterCommantaire',{'id':m.id}) }}">²ajouter un commantaire</button></a>
+
+                {% endfor %}
+
+                <div class="ftco-footer-widget mb-5">
+                    <form action="#" class="subscribe-form">
+                        <div class="form-group">
+                            <button class="btn btn-secondary px-4 py-3 mt-3"> <a href="{{ path('inscrption') }}" class="btn">s'inscrire</a></button>
+
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <sc>
+    <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").mouseenter(function(){
+                $(this).addClass("active");&
+            });
+            $("button").mouseleave(function(){
+                $(this).attr("class","");
+            })
+
+            $(".etoileVide1").mouseenter(function(){
+                $(".etoileVide1").attr('src','/assetsfront/images/etoile pleine.svg')
+            })  ;
+            $(".etoileVide1").mouseleave(function(){
+                $(".etoileVide1").attr('src','/assetsfront/images/etoile vide.svg')
+            })  ;
+            $(".etoileVide2").mouseenter(function(){
+                $(".etoileVide1").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide2").attr('src','/assetsfront/images/etoile pleine.svg')
+            })  ;
+            $(".etoileVide2").mouseleave(function(){
+                $(".etoileVide2").attr('src','/assetsfront/images/etoile vide.svg')
+                $(".etoileVide1").attr('src','/assetsfront/images/etoile vide.svg')
+            })  ;
+            $(".etoileVide3").mouseenter(function(){
+                $(".etoileVide1").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide2").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide3").attr('src','/assetsfront/images/etoile pleine.svg')
+            })  ;
+            $(".etoileVide3").mouseleave(function(){
+                $(".etoileVide2").attr('src','/assetsfront/images/etoile vide.svg')
+                $(".etoileVide1").attr('src','/assetsfront/images/etoile vide.svg')
+                $(".etoileVide3").attr('src','/assetsfront/images/etoile vide.svg')
+            })  ;
+            $(".etoileVide4").mouseenter(function(){
+                $(".etoileVide1").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide2").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide3").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide3").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide4").attr('src','/assetsfront/images/etoile pleine.svg')
+            })  ;
+            $(".etoileVide4").mouseleave(function(){
+                $(".etoileVide2").attr('src','/assetsfront/images/etoile vide.svg')
+                $(".etoileVide1").attr('src','/assetsfront/images/etoile vide.svg')
+                $(".etoileVide3").attr('src','/assetsfront/images/etoile vide.svg')
+                $(".etoileVide4").attr('src','/assetsfront/images/etoile vide.svg')
+            })  ;
+            $(".etoileVide5").mouseenter(function(){
+                $(".etoileVide1").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide2").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide3").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide3").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide4").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide4").attr('src','/assetsfront/images/etoile pleine.svg')
+                $(".etoileVide5").attr('src','/assetsfront/images/etoile pleine.svg')
+            })  ;
+            $(".etoileVide5").mouseleave(function(){
+                $(".etoileVide2").attr('src','/assetsfront/images/etoile vide.svg')
+                $(".etoileVide1").attr('src','/assetsfront/images/etoile vide.svg')
+                $(".etoileVide3").attr('src','/assetsfront/images/etoile vide.svg')
+                $(".etoileVide4").attr('src','/assetsfront/images/etoile vide.svg')
+                $(".etoileVide5").attr('src','/assetsfront/images/etoile vide.svg')
+            })  ;
+        });
+    </script>
+{% endblock %}

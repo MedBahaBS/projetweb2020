@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+    <!-- start page content -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+                <div class="page-title-breadcrumb">
+                    <div class=" pull-left">
+                        <div class="page-title">Liste des Abonnés</div>
+                    </div>
+                    <ol class="breadcrumb page-breadcrumb pull-right">
+                        <li><i class="fa fa-home"></i>&nbsp;
+                            <a class="parent-item"
+                               href="index.html">Accueil</a>&nbsp;
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li><a class="parent-item" href="#">Abonnés</a>&nbsp;<i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="active">Liste des Abonnés</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tabbable-line">
+
+                        <ul class="nav customtab nav-tabs" role="tablist">
+                            <li class="nav-item"><a href="#tab1" class="nav-link  " data-toggle="tab">Liste
+                                </a></li>
+
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane fontawesome-demo" id="tab1">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-box">
+                                            <div class="card-head">
+                                                <header>Tous les Abonnés</header>
+                                                <div class="tools">
+                                                    <a class="fa fa-repeat btn-color box-refresh"
+                                                       href="javascript:;"></a>
+                                                    <a class="t-collapse btn-color fa fa-chevron-down"
+                                                       href="javascript:;"></a>
+                                                    <a class="t-close btn-color fa fa-times"
+                                                       href="javascript:;"></a>
+                                                </div>
+                                            </div>
+                                            <div class="card-body ">
+
+                                                <div class="table-scrollable">
+                                                    <table
+                                                            class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                                                            id="example4">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>username </th>
+                                                            <th>email de  l'utilisateur</th>
+                                                            <th>status</th>
+
+                                                        </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                        {% for ll in listeInscription %}
+                                                            <tr class="odd gradeX">
+                                                                <td>{{ ll.user.username }}</td>
+                                                                <td>{{ ll.user.email }}</td>
+                                                                <td>{{ ll.status }}</td>
+                                                                <td>
+                                                                    <a href="{{ path('valider',{'id':ll.id}) }}"
+                                                                       class="btn btn-primary btn-xs">
+                                                                        <i class="fa fa-pencil"></i>
+                                                                    </a>
+
+                                                                    <a href="{{ path('supprimerInscription',{'id':ll.id}) }}"
+                                                                       class="btn btn-danger btn-xs">
+                                                                        <i class="fa fa-trash-o "></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <center><a href="{{ path('testerEmail') }}"><button class="btn btn-xs" style=""><i class="fa fa-download" aria-hidden="true">Telecharger en version pdf</i></button></a></center>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- end page content -->
+
+{% endblock %}

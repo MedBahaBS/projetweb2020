@@ -1,0 +1,20 @@
+
+                                                    <table>
+
+                                                        <tr>
+                                                            <th>username </th>
+                                                            <th>email de  l'utilisateur</th>
+
+                                                        </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                        {% for ll in listeInscription %}
+                                                            <tr class="odd gradeX">
+                                                                <td>{{ ll.user.username }}</td>
+                                                                <td>{{ ll.user.email }}</td>
+
+                                                            </tr>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>

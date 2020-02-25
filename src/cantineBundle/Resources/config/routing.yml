@@ -1,0 +1,49 @@
+cantine_homepage:
+    path:     /
+    defaults: { _controller: cantineBundle:Default:index }
+
+ajouterplat:
+    path:     /admin/ajouterplat
+    defaults: { _controller: cantineBundle:mon:ajouterplat }
+
+afficherplat:
+    path:     /admin/afficherplat
+    defaults: { _controller: cantineBundle:mon:afficherplat }
+testerEmail:
+    path:     /admin/testerEmail
+    defaults: { _controller: cantineBundle:mon:testerEmail }
+ajoutermenu:
+    path:     /admin/ajoutermenu
+    defaults: { _controller: cantineBundle:mon:ajoutermenu }
+
+affichermenu:
+    path:     /admin/affichermenu
+    defaults: { _controller: cantineBundle:mon:affichermenu }
+
+supprimerplat:
+    path:     /admin/supprimerplat/{id}
+    defaults: { _controller: cantineBundle:mon:supprimerplat }
+
+modifierplat:
+    path:     /admin/modifierplat/{id}
+    defaults: { _controller: cantineBundle:mon:modifierplat }
+
+supprimermenu:
+    path:     /admin/supprimermenu/{id}
+    defaults: { _controller: cantineBundle:mon:supprimermenu }
+
+modifiermenu:
+    path:     /admin/modifiermenu/{id}
+    defaults: { _controller: cantineBundle:mon:modifiermenu }
+valider:
+    path:     /admin/valider/{id}
+    defaults: { _controller: cantineBundle:mon:valider }
+exportmenu:
+    path:     /admin/exportmenu
+    defaults: { _controller: cantineBundle:mon:exportmenu }
+afficherInscription:
+    path:     /admin/afficherInscription
+    defaults: { _controller: cantineBundle:mon:afficherInscription }
+supprimerInscription:
+    path:     /admin/supprimerInscription/{id}
+    defaults: { _controller: cantineBundle:mon:supprimerInscription }
