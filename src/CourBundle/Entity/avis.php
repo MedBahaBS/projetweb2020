@@ -22,6 +22,11 @@ class avis
     private $avisparent;
 
     /**
+     * @ORM\Column(type="integer",nullable=true)
+     */
+    private $rating;
+
+    /**
      * @return mixed
      */
     public function getIdavis()
@@ -51,6 +56,22 @@ class avis
     public function setAvisparent($avisparent)
     {
         $this->avisparent = $avisparent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param mixed $rating
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
     }
 
 }

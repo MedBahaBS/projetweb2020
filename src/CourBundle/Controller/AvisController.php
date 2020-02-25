@@ -26,7 +26,7 @@ class AvisController  extends Controller
         $avis = new avis();
         $form = $this->createForm(avisType::class, $avis);
         $form->handleRequest($request);//
-        if ($form->isValid()) {
+        if ($form->isSubmitted()) {
             $verif = $this->getDoctrine()->getRepository(avis::class)->findBy(array('avi' => $avis->getIdavis()));
             if (sizeof($verif) > 0) {
                 $this->get('session')->getFlashBag()->add(

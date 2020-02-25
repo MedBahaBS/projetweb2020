@@ -17,7 +17,7 @@
 
     <div class="card card-box">
     <div class="card-head">
-        <header> Liste des cours </header>
+        <header> Liste des reponse </header>
         <div class="tools">
             <a class="fa fa-repeat btn-color box-refresh"
                href="javascript:;"></a>
@@ -69,47 +69,29 @@
             id="example4">
         <thead>
         <tr>
-            <th> id </th>
-            <th> Niveau </th>
-            <th> matiere </th>
-            <th> Nom Chapitre </th>
-            <th> Date </th>
-            <th> Email </th>
-            <th> lien </th>
+            <th> idrep  </th>
+            <th> reponse </th>
+            <th> nom serie a repondre </th>
+            <th> note serie </th>
+            <th> user </th>
+            <th> Commantaire </th>
 
-            <th> Action </th>
 
         </tr>
         </thead>
         <tbody>
         <tr class="odd gradeX">
 
-        {% for infos in cours %}
+        {% for infos in reponse %}
             <tr>
-                <td>{{ infos.idcour }}</td>
-                <td>{{ infos.niveau }}</td>
-                <td>{{ infos.matiere}}</td>
-                <td>{{ infos.nomchapitre }}</td>
-                <td>{{ infos.date|date('Y-m-d')}}</td>
-                <td>{{ infos.email }}</td>
-                <td>{{ infos.lien }}</td>
+                <td>{{ infos.idreponse }}</td>
+                <td> {{ infos.reponse.nomserie }}</td>
+                <td>{{ infos.lienrep}}</td>
+                <td>{{ infos.noteserier }}</td>
+                <td>{{ infos.user }}</td>
+                <td>{{ infos.commantaire}}</td>
 
 
-
-            <td>
-                <a href="{{ path ('cour_modifier',{'id':infos.idcour}) }}"
-                   class="btn btn-primary btn-xs">
-                    <i class="fa fa-pencil"></i>
-                </a>
-                <a  href="{{ path ('cour_consulter',{'id':infos.idcour}) }}">
-                    <i class="fa fa-eye" style="font-size:24px;color:red"></i>
-                </a>
-                <a  href="{{ path ('cour_supp',{'id':infos.idcour}) }}">
-                <button class="btn btn-danger btn-xs">
-                    <i class="fa fa-trash-o "></i>
-                </button>
-                </a>
-            </td>
             </tr>
         </tbody>
         {% endfor %}

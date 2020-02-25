@@ -1,0 +1,109 @@
+{% extends "base.html.twig" %}
+{% block container  %}
+    <div class="card">
+        <div class="card-head card-topline-aqua">
+            <header>Détails cour</header>
+        </div>
+
+        <div class="card-body no-padding height-9">
+            <div class="profile-desc">
+
+            </div>
+            <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                    <b>id </b>
+                    <div class="profile-desc-item pull-right">{{ infos.idcour }}</div>
+                </li>
+                <li class="list-group-item">
+                    <b>Niveau </b>
+                    <div class="profile-desc-item pull-right">{{ infos.Niveau }}</div>
+                </li>
+                <li class="list-group-item">
+                    <b>matiere </b>
+                    <div class="profile-desc-item pull-right">{{ infos.matiere}}</div>
+                </li>
+                <li class="list-group-item">
+                    <b>nom chapitre </b>
+                    <div class="profile-desc-item pull-right">{{ infos.nomchapitre}}</div>
+                </li>
+                <li class="list-group-item">
+                    <b>Date </b>
+                    <div class="profile-desc-item pull-right">{{ infos.date|date('Y-m-d')}}</div>
+                </li>
+                <li class="list-group-item">
+                    <b>Lien </b>
+                    <div class="profile-desc-item pull-right"><a href="{{ asset('uploads/brochures/' ~ lien) }}"> {{ infos.nomchapitre}} </a>
+                    </div>
+                </li>
+                <li class="list-group-item">
+
+                    <img width="200" height="200" src="{{ infos.qrcode}}" />
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    </di
+
+    <div class="card card-box">
+            <div class="card-head card-topline-aqua">
+                <header>Series {{ infos.series|length }}</header>
+
+            </div>
+
+            <div class="card-head card-topline-aqua">
+            </div>
+
+                {% for s in infos.series %}
+                    <li class="list-group-item">
+                        <b>Id</b>
+                        <div class="profile-desc-item pull-right">{{s.idserie}}</div>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Nom serie </b>
+                        <div class="profile-desc-item pull-right">{{s.nomserie}}</div>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Description serie </b>
+                        <div class="profile-desc-item pull-right">{{s.description}}</div>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Lien Serie </b>
+                        <div class="profile-desc-item pull-right"><a href="{{ asset('uploads/brochures/' ~ lien) }}"> {{s.nomserie}} </a></div>
+
+
+                    </li>
+                    <div class="profile-desc">
+
+                    </div>
+                {% endfor %}
+        <div class="col-lg-12 p-t-20 text-center">
+            <a href="{{ path('cour_list') }}">
+                <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink">retour
+                </button></a>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+{% endblock %}

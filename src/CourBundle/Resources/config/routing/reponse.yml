@@ -1,0 +1,24 @@
+reponse_index:
+    path:     /
+    defaults: { _controller: "CourBundle:Reponse:index" }
+    methods:  GET
+
+reponse_show:
+    path:     /{idreponse}/show
+    defaults: { _controller: "CourBundle:Reponse:show" }
+    methods:  GET
+
+reponse_new:
+    path:     /new/{id}
+    defaults: { _controller: "CourBundle:Reponse:new" }
+    methods:  [GET, POST]
+
+reponse_edit:
+    path:     /{idreponse}/edit
+    defaults: { _controller: "CourBundle:Reponse:edit" }
+    methods:  [GET, POST]
+
+reponse_delete:
+    path:     /{idreponse}/delete
+    defaults: { _controller: "CourBundle:Reponse:delete" }
+    methods:  DELETE

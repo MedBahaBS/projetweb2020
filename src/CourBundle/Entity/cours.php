@@ -3,12 +3,17 @@
 
 namespace CourBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  *
  * @ORM\Entity
  */
 class cours
 {
+
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -18,7 +23,29 @@ class cours
     /**
      * @ORM\Column(type="string", length=255)
      */
+
     private $niveau;
+
+    /**
+     * @return mixed
+     */
+    public function getQrcode()
+    {
+        return $this->qrcode;
+    }
+
+    /**
+     * @param mixed $qrcode
+     */
+    public function setQrcode($qrcode)
+    {
+        $this->qrcode = $qrcode;
+    }
+    /**
+     * @ORM\Column(type="text")
+     */
+
+    private $qrcode;
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -34,57 +61,44 @@ class cours
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string")
      */
     private $lien;
-    /**
-     * @ORM\ManyToOne(targetEntity="serie")
-     * @ORM\JoinColumn(name="series",referencedColumnName="idserie")
-     */
-    private $series;
-
-    /**
-     * @return mixed
-     */
-    public function getSeries()
-    {
-        return $this->series;
-    }
-
-    /**
-     * @param mixed $series
-     */
-    public function setSeries($series)
-    {
-        $this->series = $series;
-    }
-
-    /**
-     * @return mixed
-     */
 
 
-
-
-    /**
-     * @return mixed
-     */
     public function getLien()
     {
         return $this->lien;
     }
 
-    /**
-     * @param mixed $lien
-     */
     public function setLien($lien)
     {
         $this->lien = $lien;
+
+        return $this;
     }
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="serie", mappedBy="cour")
+     */
+    private $series;
+
+    public function __construct()
+    {
+        $this->series = new ArrayCollection();
+    }
+
+
 
 
 
@@ -167,7 +181,29 @@ class cours
     {
         $this->date = $date;
     }
+    /**
+     * @return Collection|serie[]
+     */
+    public function getSeries(): Collection
+    {
+        return $this->series;
+    }
 
+    public function addSeries(Serie $user): self
+    {
+        if (!$this->Series->contains($user)) {
+            $this->Series[] = $user;
+        }
+        return $this;
+    }
+    public function removeSeries(Serie $user): self
+    {
+        if ($this->series->contains($user)) {
+            $this->series->removeElement($user);
+            $user->setCour(null);
+        }
+        return $this;
+    }
     /**
      * @return mixed
      */

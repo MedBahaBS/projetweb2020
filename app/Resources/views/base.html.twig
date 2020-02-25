@@ -39,6 +39,14 @@
     <link rel="shortcut icon" href="http://radixtouch.in/templates/admin/smart/source/assets/img/favicon.ico" />
     <link href="http://radixtouch.in/templates/admin/smart/source/assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet"
           type="text/css" />
+    <!-- DataTables CSS library -->
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- DataTables JS library -->
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 </head>
 <!-- END HEAD -->
 
@@ -52,7 +60,7 @@
             <div class="page-logo">
                 <a href="index-2.html">
                     <span class="logo-icon material-icons fa-rotate-45">school</span>
-                    <span class="logo-default">Smart</span> </a>
+                    <span class="logo-default">Genius</span> </a>
             </div>
             <!-- logo end -->
             <ul class="nav navbar-nav navbar-left in">
@@ -249,7 +257,7 @@
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                            data-close-others="true">
                             <img alt="" class="img-circle " src="../assets/img/dp.jpg" />
-                            <span class="username username-hide-on-mobile"> Kiran </span>
+                            <span class="username username-hide-on-mobile"> {{ app.user.username }} </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
@@ -362,9 +370,9 @@
                                          alt="User Image" />
                                 </div>
                                 <div class="pull-left info">
-                                    <p> Kiran Patel</p>
-                                    <a href="#"><i class="fa fa-circle user-online"></i><span class="txtOnline">
-												Online</span></a>
+                                    <p></p>
+                                    <a href="#"><i class="fa fa-circle user-online"></i> <span class="txtOnline">
+												{{ app.user.username }}</span></a>
                                 </div>
                             </div>
                         </li>
@@ -535,11 +543,7 @@
 												des series </span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href=""{{path('serie_ajout')}}"" class="nav-link "> <span class="title">ajouter
-												serie </span>
-                                    </a>
-                                </li>
+
 
 
 
@@ -968,11 +972,21 @@
 <script src="{{ asset ('back/plugins/chart-js/Chart.bundle.js')}}"></script>
 <script src="{{ asset ('back/plugins/chart-js/utils.js')}}"></script>
 <script src="{{ asset ('back/js/pages/chart/chartjs/home-data.js')}}"></script>
-<!-- summernote
+<!-- summernote-->
 <script src="{{ asset ('back/plugins/summernote/summernote.js')}}"></script>
 <script src="{{ asset ('back/js/pages/summernote/summernote-data.js')}}"></script>
+<script src="{{ asset ('back/plugins/dropzone/dropzone.js')}}"></script>
+<script src="{{ asset ('back/plugins/dropzone/dropzone-call.js')}}"></script>
 
-end js include path -->
+<script>
+    $(document).ready(function(){
+        $('#memListTable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "getData.php"
+        });
+    });
+</script>
 </body>
 
 

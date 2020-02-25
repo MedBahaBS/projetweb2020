@@ -32,6 +32,44 @@ class serie
     /**
      * @return mixed
      */
+
+    /**
+     * @ORM\ManyToOne(targetEntity="cours", inversedBy="series")
+     * @ORM\JoinColumn(name="cour",referencedColumnName="idcour")
+     */
+    private $cour;
+
+    /**
+     * Many series have Many panier.
+     * @ORM\ManyToMany(targetEntity="Panier", mappedBy="seriess")
+     */
+    private $panieserie;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Reponse", mappedBy="reponse", cascade={"remove"})
+     */
+    private $reponses;
+
+
+    public function __construct() {
+        $this->panieserie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    /**
+     * @return mixed
+     */
+    public function getCour()
+    {
+        return $this->cour;
+    }
+
+    /**
+     * @param mixed $cour
+     */
+    public function setCour($cour)
+    {
+        $this->cour = $cour;
+    }
+
     public function getIdserie()
     {
         return $this->idserie;
@@ -93,5 +131,53 @@ class serie
     {
         $this->description = $description;
     }
+
+    public function addPanier(panier $panier ): self
+    {
+        if (!$this->panieserie->contains($panier )) {
+            $this->panieserie[] = $panier;
+        }
+        return $this;
+    }
+    public function removePanier(panier $panier ): self
+    {
+        if ($this->panieserie->contains($panier )) {
+            $this->panieserie->removeElement($panier );
+        }
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPanieserie()
+    {
+        return $this->panieserie;
+    }
+
+    /**
+     * @param mixed $panieserie
+     */
+    public function setPanieserie($panieserie)
+    {
+        $this->panieserie = $panieserie;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReponses()
+    {
+        return $this->reponses;
+    }
+
+    /**
+     * @param mixed $reponses
+     */
+    public function setReponses($reponses)
+    {
+        $this->reponses = $reponses;
+    }
+
 
 }

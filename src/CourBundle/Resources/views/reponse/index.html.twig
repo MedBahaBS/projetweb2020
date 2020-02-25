@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reponses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idreponse</th>
+                <th>Lienrep</th>
+                <th>Noteserier</th>
+                <th>Commantaire</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reponse in reponses %}
+            <tr>
+                <td><a href="{{ path('reponse_show', { 'idreponse': reponse.idreponse }) }}">{{ reponse.idreponse }}</a></td>
+                <td>{{ reponse.lienrep }}</td>
+                <td>{{ reponse.noteserier }}</td>
+                <td>{{ reponse.commantaire }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('reponse_show', { 'idreponse': reponse.idreponse }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('reponse_edit', { 'idreponse': reponse.idreponse }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reponse_new') }}">Create a new reponse</a>
+        </li>
+    </ul>
+{% endblock %}
