@@ -1,0 +1,19 @@
+{% extends 'baseback.html.twig' %}
+{% block container %}
+    <html>
+    <head>
+
+    </head>
+    <body>
+    <h1>faire la modification pour la note: </h1>
+    <form method="post">
+        Note 1: <input type="text" name="note1" value="{{ note.note1 }}"></br>
+        Note 2: <input type="text" name="note2" value="{{ note.note2 }}"></br>
+        Moyenne: <input type="text" name="moyenne" value="{{ note.moyenne }}"></br>
+
+        <input type="submit" value="modifier">
+    </form>
+    </body>
+
+    </html>
+{% endblock %}

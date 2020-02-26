@@ -1,0 +1,61 @@
+{% extends 'baseback.html.twig' %}
+{% block container %}
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+                <div class="page-title-breadcrumb">
+                    <div class=" pull-left">
+                        <div class="page-title">Ajouter Note</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box">
+                        <div class="card-head">
+                            <header>Ajouter Note</header>
+                        </div>
+                        <div class="card-body row">
+                            {{ form_start(form) }}
+                            <div class="card-body row">
+                                <div class="col-lg-6 p-t-20">
+                                    <div
+                                            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"><b><i>note 1 : </i></b>
+
+                                        {{ form_widget(form.note1, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div
+                                            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"><b><i>Note2 : </i></b>
+
+                                        {{ form_widget(form.note2, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div
+                                            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"><b><i>Matiére : </i></b>
+
+                                        {{ form_widget(form.matiere, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 p-t-20 text-center">
+                                    <button type="submit"
+                                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink">Ajouter </button>
+                                    <button type="button"
+                                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-default">Annuler </button>
+                                </div>
+                            </div>
+
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
