@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+
+    <!-- Services -->
+    <section class="page-section" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">evenements</h2>
+                    <h3 class="section-subheading text-muted">Participez a nos évenements.</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <img  class="img-fluid" src="{{ asset('front/img/bhar.jpg')}}" border="1">
+                    <h4 class="service-heading">Pique-nique</h4>
+                    <p class="text-muted">Partez avec nous dans une aventure de pique-nique avec votre vélo  </p>
+                </div>
+                <div class="col-md-4">
+                    <img  class="img-fluid" src="{{ asset('front/img/bhartop.jpg')}}" border="1">
+                    <h4 class="service-heading">Course</h4>
+                    <p class="text-muted">inscrivez-vous maintenant dans notre course de vélo qui aura lieu ce samedi a 9h du matin a ez-zahra , prouvez votre valeur et gagnez la recompense</p>
+                </div>
+                <div class="col-md-4">
+                    <img  class="img-fluid" src="{{ asset('front/img/Bhiro.jpg')}}" border="1">
+                    <h4 class="service-heading">Nous sommes les pro !</h4>
+                    <p class="text-muted"> etes-vous vraiment doué par les vélo ,ne ratez pas l'occasion, ce dimanche a 12h nos meilleurs cyclistes sont au rendez-vous pour vous montrer leurs talents , inscrivez-vous maintenant et résérvez votre place ! </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
