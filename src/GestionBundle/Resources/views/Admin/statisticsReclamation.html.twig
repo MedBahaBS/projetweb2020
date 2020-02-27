@@ -1,0 +1,70 @@
+{% extends 'Base_backend/base.html.twig' %}
+{% block titre %} Statistiques {% endblock %}
+{% block content  %}
+
+    <link rel="stylesheet" href="{{ asset('back2/back/dist/css/AdminLTE.min.css') }}">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        {{ gc_draw(piechart, 'div_chart') }}
+    </script>
+
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <div class="page-bar">
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Statistiques des réclamations
+            </h1>
+            <ol class="breadcrumb">
+
+
+            </ol>
+        </section>
+        <section class="content">
+            <!-- Default box -->
+            <div class="row">
+                <!-- /.col (LEFT) -->
+                <div class="col-md-12">
+                    <!-- LINE CHART -->
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"></h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body chart-responsive">
+                            <div class="chart" id="div_chart"></div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+
+
+                </div>
+                <!-- /.col (RIGHT) -->
+            </div>
+
+
+
+
+
+        </section>
+
+    </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+    {% block javascripts %}
+        <script type="text/javascript">
+            $("#classe").addClass("open active");
+            $("#stats").addClass("active");
+        </script>
+    {% endblock %}

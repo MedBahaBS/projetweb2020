@@ -1,0 +1,55 @@
+{% extends 'Base_frontend/base.html.twig' %}
+{% block title %} Le club en détails {% endblock %}
+{%  block baniere %}
+     <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets/Front/images/bg_2.jpg')}});">
+          <div class="overlay"></div>
+          <div class="container">
+               <div class="row no-gutters slider-text align-items-center justify-content-center">
+                    <div class="col-md-9 ftco-animate text-center">
+                         <h1 class="mb-2 bread">Club</h1>
+                         <p class="breadcrumbs"><span class="mr-2"><a href="#">Home <i class="ion-ios-arrow-forward"></i></a></span>
+                              <span><a href="{{ path('AfficherClubfront') }}"> Club</a> <i class="ion-ios-arrow-forward"></i></span></p>
+                    </div>
+               </div>
+          </div>
+     </section>
+{% endblock %}
+{% block content %}
+
+     <section class="ftco-section">
+          <div class="container">
+               <div class="row">
+                    <div class="col-lg-8 ftco-animate">
+                         <h2 class="mb-3">{{ club.nom}}</h2>
+                         <p>{{ club.description }}</p>
+
+                         <div class="row">
+                              <div class="col-md-5 col-6 b-r"> <strong>responsable</strong>
+                                   <br>
+                                   <p >{{ club.responsable}}</p>
+                              </div>
+                         </div>
+
+                    </div>
+
+               </div>
+               <div class="col-lg-4 sidebar ftco-animate">
+                    <div class="sidebar-box">
+                        {% if estMembre == false %}
+                         <a href="{{ path('club_membre', { 'id' : club.id , 'ideleve' : app.user.id}) }}">
+                              <button class="btn btn-success">
+                                   Participer
+                              </button>
+                         </a>
+                         {% else %}
+                         <a href="#">
+                              <button class="btn btn-danger">
+                                   Vous êtes deja inscris
+                              </button>
+                         </a>
+                        {% endif %}
+                    </div>
+               </div>
+          </div>
+     </section>
+{% endblock %}

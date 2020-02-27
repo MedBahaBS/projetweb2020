@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reponse</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idreponse</th>
+                <td>{{ reponse.idreponse }}</td>
+            </tr>
+            <tr>
+                <th>Lienrep</th>
+                <td>{{ reponse.lienrep }}</td>
+            </tr>
+            <tr>
+                <th>Noteserier</th>
+                <td>{{ reponse.noteserier }}</td>
+            </tr>
+            <tr>
+                <th>Commantaire</th>
+                <td>{{ reponse.commantaire }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reponse_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('reponse_edit', { 'idreponse': reponse.idreponse }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

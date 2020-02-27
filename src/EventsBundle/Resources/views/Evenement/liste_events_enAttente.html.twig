@@ -1,6 +1,6 @@
-{% extends '@Events/Base_backend/base.html.twig' %}
-{% block title %}
-     Liste des événements
+{% extends 'Base_backend/base.html.twig' %}
+{% block titre %}
+     Evénements en attente de confirmation
 {% endblock %}
 {% block navbar %}
     <li class="nav-item active open">
@@ -13,12 +13,12 @@
 												Calendrier</span>
                 </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a href="{{ path('events_listeevent') }}" class="nav-link "> <span class="title">
 												Liste des événements</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a href="{{ path('events_listeeventpending') }}" class="nav-link "> <span class="title">Evénements en attente</span>
                 </a>
             </li>
@@ -36,7 +36,7 @@
             <div class="page-bar">
                 <div class="page-title-breadcrumb">
                     <div class=" pull-left">
-                        <div class="page-title">Liste des événements</div>
+                        <div class="page-title">Liste des événements en attente de confirmation</div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         <li><i class="fa fa-home"></i>&nbsp;
@@ -46,7 +46,7 @@
                         </li>
                         <li><a class="parent-item" href="#">Evénements</a>&nbsp;<i class="fa fa-angle-right"></i>
                         </li>
-                        <li class="active">Liste des événements</li>
+                        <li class="active">Evénements en attente</li>
                     </ol>
                 </div>
             </div>
@@ -79,14 +79,6 @@
                                             </div>
                                             <div class="card-body ">
                                                 <div class="row">
-                                                    <div class="col-md-6 col-sm-6 col-6">
-                                                        <div class="btn-group">
-                                                            <a href="{{ path('events_ajoutevent') }}" id="addRow"
-                                                               class="btn btn-info">
-                                                                Ajouter un événement <i class="fa fa-plus"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
                                                     <div class="col-md-6 col-sm-6 col-6">
                                                         <div class="btn-group pull-right">
                                                             <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
@@ -149,6 +141,10 @@
                                                                    class="btn btn-danger btn-xs">
                                                                     <i class="fa fa-trash-o "></i>
                                                                 </a>
+                                                                <a href="{{ path('events_detailsevent',{ 'idevent' : event.idevenement}) }}"
+                                                                   class="btn btn-circle btn-xs deepPink-bgcolor">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </a>
                                                             </td>
                                                         </tr>
                                                         {% endfor %}
@@ -162,23 +158,14 @@
                             </div>
                             <div class="tab-pane active" id="tab2">
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6 col-6">
-                                        <div class="btn-group">
-                                            <a href="{{ path('events_ajoutevent') }}" id="addRow"
-                                               class="btn btn-info">
-                                                Ajouter un événement <i class="fa fa-plus"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
                                     {% for event in events %}
                                     <div class="col-md-6">
                                         <div class="card card-box">
                                             <div class="card-body no-padding ">
                                                 <div class="doctor-profile">
-                                                    <img src="http://radixtouch.in/templates/admin/smart/source/assets/img/prof/prof10.jpg" class="doctor-pic"
-                                                         alt="">
+                                                    <img src="{{asset('../public/images/events/')}}{{ event.imageName }}"
+                                                    class="icon-picture" style="height: 150px"
+                                                    alt="{{ event.imageName }}">
                                                     <div class="profile-usertitle">
                                                         <div class="doctor-name">{{ event.titre }} </div>
                                                         <div class="name-center font-italic mdl-color--blue"> {{ event.categorie.libelle}} </div>
@@ -206,4 +193,10 @@
         </div>
     </div>
     <!-- end page content -->
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#evenement").addClass("open active");
+        $("#pendingevents").addClass("active");
+    </script>
 {% endblock %}

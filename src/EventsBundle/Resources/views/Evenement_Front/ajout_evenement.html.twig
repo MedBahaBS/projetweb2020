@@ -1,59 +1,32 @@
-{% extends '@Events/Base_backend/base.html.twig' %}
-{% block title %}
-     Ajout d'un événement
+{% extends 'Base_frontend/base.html.twig' %}
+{% block titre %}
+     Proposer un événement
 {% endblock %}
-
-{% block navbar %}
-    <li class="nav-item active open">
-        <a href="#" class="nav-link nav-toggle">
-            <span class="title">Evenements</span><span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-            <li class="nav-item">
-                <a href="{{ path('events_accueil') }}" class="nav-link"> <span class="title">
-												Calendrier</span>
-                </a>
-            </li>
-            <li class="nav-item active">
-                <a href="{{ path('events_listeevent') }}" class="nav-link "> <span class="title">
-												Liste des événements</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ path('events_listeeventpending') }}" class="nav-link "> <span class="title">Evénements en attente</span>
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a href="{{ path('events_listecategorie') }}" class="nav-link "> <span class="title">Liste des catégories</span>
-                </a>
-            </li>
-        </ul>
-    </li>
+{%  block baniere %}
+<section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets/Front/images/bg_2.jpg')}});">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-2 bread">Nos événements</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="#">Home <i class="ion-ios-arrow-forward"></i></a></span>
+                    <span><a href="{{ path('events_frontshow') }}"> Evénements</a> <i class="ion-ios-arrow-forward"></i></span></p>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
-
 {% block content %}
+
     <!-- start page content -->
+    <div class="container">
     <div class="page-content-wrapper">
         <div class="page-content">
             <div class="page-bar">
                 <div class="page-title-breadcrumb">
                     <div class=" pull-left">
-                        <div class="page-title">Ajout d'un événement</div>
+                        <div class="page-title">Proposer un événement</div>
                     </div>
-                    <ol class="breadcrumb page-breadcrumb pull-right">
-                        <li><i class="fa fa-home"></i>&nbsp;
-                            <a class="parent-item"
-                               href="{{ path('events_accueil') }}">
-                                Accueil
-                            </a>&nbsp;
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li><a class="parent-item" href="{{ path('events_listeevent') }}">
-                                Evénements
-                            </a>&nbsp;<i class="fa fa-angle-right"></i>
-                        </li>
-                        <li class="active">Ajouter un événement</li>
-                    </ol>
                 </div>
             </div>
             <div class="row">
@@ -156,6 +129,16 @@
                         </div>
                             <div class="form-group row">
                                 <label class="control-label col-md-3">
+                                    Club
+                                    <span class="required"> * </span>
+                                </label>
+                                {{ form_widget(f.club, {'attr': {'class' : 'col-md-5 form-control input-height'}}) }}
+                                {% if form_errors(f.club) is not empty %}
+                                    <div class="alert alert-danger" >{{ form_errors(f.club) }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
                                     Images
                                 </label>
                                 {{ form_widget(f.imageFile ) }}
@@ -176,6 +159,11 @@
                 </div>
             </div>
         </div>
-
+    </div>
     <!-- end page content -->
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#evenement").addClass("active");
+    </script>
 {% endblock %}

@@ -1,129 +1,113 @@
-{% extends '@Events/Base_backend/base.html.twig' %}
-{% block title %}
+{% extends 'Base_frontend/base.html.twig' %}
+{% block titre %}
      {{ event.titre}}
 {% endblock %}
-{% block navbar %}
-    <li class="nav-item active open">
-        <a href="#" class="nav-link nav-toggle">
-            <span class="title">Evenements</span><span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-            <li class="nav-item active">
-                <a href="{{ path('events_accueil') }}" class="nav-link"> <span class="title">
-												Calendrier</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ path('events_listeevent') }}" class="nav-link "> <span class="title">
-												Liste des événements</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link "> <span class="title">Evénements en attente</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ path('events_listecategorie') }}" class="nav-link "> <span class="title">Liste des catégories</span>
-                </a>
-            </li>
-        </ul>
-    </li>
+{%  block baniere %}
+     <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets/Front/images/bg_2.jpg')}});">
+          <div class="overlay"></div>
+          <div class="container">
+               <div class="row no-gutters slider-text align-items-center justify-content-center">
+                    <div class="col-md-9 ftco-animate text-center">
+                         <h1 class="mb-2 bread">Nos événements</h1>
+                         <p class="breadcrumbs"><span class="mr-2"><a href="#">Home <i class="ion-ios-arrow-forward"></i></a></span>
+                              <span><a href="{{ path('events_frontshow') }}"> Evénements</a> <i class="ion-ios-arrow-forward"></i></span></p>
+                    </div>
+               </div>
+          </div>
+     </section>
 {% endblock %}
 {% block content %}
-    <!-- start page content -->
-    <div class="page-content-wrapper">
-        <div class="page-content">
-            <div class="page-bar">
-                <div class="page-title-breadcrumb">
-                    <div class=" pull-left">
-                        <div class="page-title">L'événement en détail</div>
-                    </div>
-                    <ol class="breadcrumb page-breadcrumb pull-right">
-                        <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
-                                                               href="{{ path('events_accueil')}}">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
-                        </li>
-                        <li><a class="parent-item" href="#">Evénements</a>&nbsp;<i class="fa fa-angle-right"></i>
-                        </li>
-                        <li class="active">Détails</li>
-                    </ol>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="profile-content">
-                        <div class="row">
-                            <div class="card">
-                                <div class="card-topline-aqua">
-                                    <header></header>
-                                </div>
-                                <div class="white-box">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active fontawesome-demo" id="tab1">
-                                            <div id="biography">
-                                                <div class="row">
-                                                    <div class="col-md-5 col-6 b-r"> <strong>Titre de l'événement</strong>
-                                                        <br>
-                                                        <p class="text-success">{{ event.titre}}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-5 col-6 b-r"> <strong>Date de début</strong>
-                                                        <br>
-                                                        <p class="text-success">{{ event.date|date}}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-5 col-6 b-r"> <strong>Date de fin</strong>
-                                                        <br>
-                                                        <p class="text-success">{{ event.datefin|date}}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-5 col-6"> <strong>Lieu</strong>
-                                                        <br>
-                                                        <p class="text-success">{{ event.lieu}}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-3 col-6 center"> <strong>Frais</strong>
-                                                        <br>
-                                                        <p class="text-success center">{{ event.frais}}</p>
-                                                    </div>
-                                                    <div class="col-md-5 col-6 center"> <strong>Nombre maximal de participant</strong>
-                                                        <br>
-                                                        <p class="text-success center">{{ event.nbParticipantMax}}</p>
-                                                    </div>
-                                                    <div class="col-md-3 col-6 center"> <strong>Catégorie</strong>
-                                                        <br>
-                                                        <p class="text-success center">{{ event.categorie.libelle}}</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-md-12 col-10 b-r"> <strong>Description de l'événement</strong>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                                <p class="m-t-30">{{ event.description}}</p>
-                                                <br>
 
-                                                <h4 class="font-bold">Images</h4>
-                                                <hr>
+     <section class="ftco-section">
+          <div class="container">
+               <div class="row">
+                    <div class="col-lg-8 ftco-animate">
+                         <h2 class="mb-3">{{ event.titre}}</h2>
 
-                                                <br>
-                                                <h4 class="font-bold">Les participants</h4>
-                                                <p class="m-t-30"></p>
-                                                <hr>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                         <p>
+                              <img src="{{asset('../public/images/events/')}}{{ event.imageName }}"
+                                   alt="{{ event.imageName }}"
+                                   class="img-fluid "
+                                   style="height: auto"
+                              >
+                         </p>
+                         <p>{{ event.description }}</p>
+                         {% if event.club is not empty %}
+                         <div class="about-author d-flex p-4 bg-light">
+                              <div class="bio mr-5">
+                                   <img src="{{asset('../public/pas_image.png')}}"
+                                        alt="Image placeholder"
+                                        class="img-fluid mb-4"
+                                        width="100"
+                                   />
+                              </div>
+                              <div class="desc">
+                                   <h3>{{ event.club.Nom}}</h3>
+                                   <p>{{ event.club.Description}}</p>
+                              </div>
+                         </div>
+                         {% endif %}
+                         <div class="row">
+                              <div class="col-md-5 col-6 b-r"> <strong>Date de début</strong>
+                                   <br>
+                                   <p >{{ event.date|date}}</p>
+                              </div>
+                         </div>
+                         <div class="row">
+                              <div class="col-md-5 col-6 b-r"> <strong>Date de fin</strong>
+                                   <br>
+                                   <p>{{ event.datefin|date}}</p>
+                              </div>
+                         </div>
+                         <div class="row">
+                              <div class="col-md-5 col-6"> <strong>Lieu</strong>
+                                   <br>
+                                   <p>{{ event.lieu}}</p>
+                              </div>
+                         </div>
+                         <div class="row">
+                              <div class="col-md-3 col-6"> <strong>Frais</strong>
+                                   <br>
+                                   <p class="center">{{ event.frais}}</p>
+                              </div>
+                         </div>
+                         <div class="row">
+                              <div class="col-md-3 col-6"> <strong>Nombre maximal de participant</strong>
+                                   <br>
+                                   <p class="center">{{ event.nbParticipantMax}}</p>
+                              </div>
+                         </div>
+                         <div class="row">
+                              <div class="col-md-3 col-6"> <strong>Catégorie</strong>
+                                   <br>
+                                   <p class="center">{{ event.categorie.libelle}}</p>
+                              </div>
+                         </div>
                     </div>
-                    <!-- END PROFILE CONTENT -->
-                </div>
-            </div>
-        </div>
-        <!-- end page content -->
+
+               </div>
+               <div class="col-lg-4 sidebar ftco-animate">
+                    <div class="sidebar-box">
+                        {% if userConnected and estParticipant == false  and event.date > date() %}
+                         <a href="{{ path('events_frontparticiper', { 'idevent' : event.idevenement , 'ideleve' : 1}) }}">
+                              <button class="btn btn-success">
+                                   Participer
+                              </button>
+                         </a>
+                         {% else %}
+                         <a href="#">
+                              <button class="btn btn-danger">
+                                   Participer
+                              </button>
+                         </a>
+                        {% endif %}
+                    </div>
+               </div>
+          </div>
+     </section>
+{% endblock %}
+{% block javascripts %}
+     <script type="text/javascript">
+          $("#evenement").addClass("active");
+     </script>
 {% endblock %}

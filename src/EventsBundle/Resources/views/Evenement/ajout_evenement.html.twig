@@ -1,5 +1,5 @@
-{% extends '@Events/Base_backend/base.html.twig' %}
-{% block title %}
+{% extends 'Base_backend/base.html.twig' %}
+{% block titre %}
      Ajout d'un événement
 {% endblock %}
 
@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link "> <span class="title">Evénements en attente</span>
+                <a href="{{ path('events_listeeventpending') }}" class="nav-link "> <span class="title">Evénements en attente</span>
                 </a>
             </li>
             <li class="nav-item ">
@@ -70,6 +70,11 @@
                                 <span class="required"> * </span>
                             </label>
                             {{ form_widget(f.titre, {'attr': {'class' : 'col-md-5 form-control input-height'}}) }}
+                            {% if form_errors(f.titre) is not empty %}
+                                <div class="alert alert-danger" >
+                                    {{ form_errors(f.titre) }}
+                                </div>
+                            {% endif %}
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">
@@ -77,6 +82,13 @@
                                 <span class="required"> * </span>
                             </label>
                             {{ form_widget(f.description, {'attr': {'class' : 'col-md-5 form-control input-height'}}) }}
+                            {% if form_errors(f.description) is not empty %}
+                                <div class="alert alert-danger alert-dismissable" >
+                                    <div class="alert alert-danger alert-dismissible" >
+                                        {{ form_errors(f.description) }}
+                                    </div>
+                                </div>
+                            {% endif %}
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">
@@ -84,6 +96,21 @@
                                 <span class="required"> * </span>
                             </label>
                             {{ form_widget(f.date, {'attr': {'class' : 'col-md-5 input-height'}}) }}
+                            {% if form_errors(f.date) is not empty %}
+                                <div class="alert alert-danger alert-dismissible" >
+                                        {{ form_errors(f.date) }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Date de fin
+                                    <span class="required"> * </span>
+                                </label>
+                                {{ form_widget(f.datefin, {'attr': {'class' : 'col-md-5 input-height'}}) }}
+                                {% if form_errors(f.datefin) is not empty %}
+                                    <div class="alert alert-danger" >{{ form_errors(f.datefin) }}</div>
+                                {% endif %}
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">
@@ -91,6 +118,9 @@
                                 <span class="required"> * </span>
                             </label>
                             {{ form_widget(f.nbParticipantMax, {'attr': {'class' : 'col-md-5 form-control input-height'}}) }}
+                            {% if form_errors(f.nbParticipantMax) is not empty %}
+                                <div class="alert alert-danger" >{{ form_errors(f.nbParticipantMax) }}</div>
+                            {% endif %}
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">
@@ -98,34 +128,49 @@
                                 <span class="required"> * </span>
                             </label>
                             {{ form_widget(f.lieu, {'attr': {'class' : 'col-md-5 form-control input-height'}}) }}
+                            {% if form_errors(f.lieu) is not empty %}
+                                <div class="alert alert-danger" >{{ form_errors(f.lieu) }}</div>
+                            {% endif %}
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">
                                 Frais de participation
                                 <span class="required"> * </span>
                             </label>
+
                             {{ form_widget(f.frais, {'attr': {'class' : 'col-md-5 form-control input-height'}}) }}
+                            {% if form_errors(f.frais) is not empty %}
+                                <div class="alert alert-danger" >{{ form_errors(f.frais) }}</div>
+                            {% endif %}
                         </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-3">
-                                Date de fin
-                                <span class="required"> * </span>
-                            </label>
-                            {{ form_widget(f.datefin, {'attr': {'class' : 'col-md-5 input-height'}}) }}
-                        </div>
+
                         <div class="form-group row">
                             <label class="control-label col-md-3">
                                 Catégorie
                                 <span class="required"> * </span>
                             </label>
                             {{ form_widget(f.categorie, {'attr': {'class' : 'col-md-5 form-control input-height'}}) }}
+                            {% if form_errors(f.categorie) is not empty %}
+                                <div class="alert alert-danger" >{{ form_errors(f.categorie) }}</div>
+                            {% endif %}
                         </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Club
+                                    <span class="required"> * </span>
+                                </label>
+                                {{ form_widget(f.club, {'attr': {'class' : 'col-md-5 form-control input-height'}}) }}
+                                {% if form_errors(f.club) is not empty %}
+                                    <div class="alert alert-danger" >{{ form_errors(f.club) }}</div>
+                                {% endif %}
+                            </div>
                             <div class="form-group row">
                                 <label class="control-label col-md-3">
                                     Images
                                 </label>
-                                <input type="file" name="images" multiple="multiple"/>
+                                {{ form_widget(f.imageFile ) }}
                             </div>
+
                             <div class="form-actions">
                                 <div class="row">
                                     <div class="offset-md-3 col-md-9">
@@ -143,4 +188,10 @@
         </div>
 
     <!-- end page content -->
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#evenement").addClass("open active");
+        $("#listevents").addClass("active");
+    </script>
 {% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'Base_frontend/base.html.twig' %}
+{% block title %}
+    Nos événements
+{% endblock %}
+{%  block baniere %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets/Front/images/bg_2.jpg')}});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">Nos actualités</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="#">Home <i class="ion-ios-arrow-forward"></i></a></span>
+                        <span><a href="#"> Actualités</a> <i class="ion-ios-arrow-forward"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block events %}
+
+    <div class="container">
+        <div class="row">
+            {%  if events is not empty  %}
+                {% for event in events %}
+                    {% if event.categorie.libelle == 'Actualités' %}
+                        <div class="col-md-6 col-lg-4 ftco-animate">
+                            <div class="blog-entry">
+                                <a href="#" class="block-20 d-flex align-items-end"
+                                        {% if event.imageName is not null %}
+                                    style="background-image: url({{asset('../public/images/events/')}}{{ event.imageName }});"
+                                {% else %}
+                                    style="background-image: url({{asset('../public/pas_image.png')}}{{ event.imageName }});"
+                                        {% endif %}>
+                                    <div class="meta-date text-center p-2">
+                                        <span class="day">{{ event.date|date("d")}}</span>
+                                        <span class="mos">{{ event.date|date("M")}}</span>
+                                        <span class="yr">{{ event.date|date("Y")}}</span>
+                                    </div>
+                                </a>
+                                <div class="text bg-white p-4">
+                                    <h3 class="heading"><a href="#">{{ event.titre}}</a></h3>
+                                    <p>{{ event.description}}</p>
+                                    <div class="d-flex align-items-center mt-4">
+                                        <p class="mb-0">
+                                            <a href="{{  path('events_frontdetailsevent', {'idevent' : event.idevenement}) }}"
+                                               class="btn btn-secondary">Consulter
+                                                <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                        {#
+                                         <p class="ml-auto mb-0">
+                                             <a href="#" class="mr-2">Admin</a>
+                                             <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                                         </p>
+                                         #}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(events) }}
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#accueil").addClass("active");
+    </script>
+{% endblock %}

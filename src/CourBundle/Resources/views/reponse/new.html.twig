@@ -1,0 +1,53 @@
+{% extends "Base_frontend/base.html.twig" %}
+{% block baniere %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets/Front/images/unnamed.png')}});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">des cours</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Courses <i class="ion-ios-arrow-forward"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block content  %}
+
+{{ form_start(form) }}
+
+            <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
+                <div class="container">
+                    <div class="col-md-6 p-4 p-md-5 order-md-last bg-light">
+                        <form action="#">
+                            {{ form_start(form) }}
+                            <div class="form-group">
+
+                                {{ form_widget(form.reponse) }}
+                            </div>
+                            <div class="form-group">
+                              {{ form_widget(form.noteserier) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_widget(form.lienrep) }}
+                            </div>
+                            <div class="form-group">
+                               {{ form_widget(form.commantaire) }}
+                            </div>
+                            <div class="form-group">
+                              {{ form_widget(form.submit) }}
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+        </div>
+
+
+
+        </form>
+        {{ form_end(form) }}
+    </div>
+    </div>
+        </section>
+{% endblock %}

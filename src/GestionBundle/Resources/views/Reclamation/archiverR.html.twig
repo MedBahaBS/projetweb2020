@@ -1,0 +1,38 @@
+{% extends 'baseback.html.twig' %}
+
+{% block container %}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Liste Archive</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th> Id  </th>
+
+                        <th> Date de la réclamation </th>
+                        <th> Type de la réclamation </th>
+                        <th> Le contenu de la réclamation </th>
+
+
+                    </tr>
+                    <tbody>
+                    {% for archive in archives %}
+                        <tr>
+                            <td><a href="#">{{ archive.id }}</a></td>
+                            <td class="left">{{ archive.Reclamation.dateReclamation|date("m/d/y")}}</td>
+                            <td class="left">{{ archive.Reclamation.typeReclamation }}</td>
+                            <td class="left">{{ archive.Reclamation.contenuReclamation }}</td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

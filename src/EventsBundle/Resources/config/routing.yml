@@ -1,9 +1,12 @@
 events_homepage:
     path: /
     defaults: {_controller: EventsBundle:Login:index}
+events_login:
+    path: /
+    defaults: {_controller: EventsBundle:Login:index}
 events_accueil:
     path:     /admin
-    defaults: { _controller: EventsBundle:Categorie:accueil }
+    defaults: { _controller: EventsBundle:Default:index }
 events_listecategorie:
     path:     /admin/listCategorie
     defaults: { _controller: EventsBundle:Categorie:list }
@@ -30,12 +33,44 @@ events_supprimerevent:
     path:     /admin/supprimerEvent/{id}
     defaults: { _controller: EventsBundle:Evenement:supprimer }
 events_detailsevent:
-    path:     /admin/detailsEvent/{id}
+    path:     /admin/detailsEvent/{idevent}
     defaults: { _controller: EventsBundle:Evenement:details }
+events_listeeventpending:
+    path:     /admin/listEventsPending
+    defaults: { _controller: EventsBundle:Evenement:enAttente }
+events_confirmerevent:
+    path:     /admin/listEventsPending/confirmer/{idevent}
+    defaults: { _controller: EventsBundle:Evenement:confirmer }
+events_supprimerparticipant:
+    path:     /admin/supprimerParticipant/{idevent}/{idparticipant}
+    defaults: { _controller: EventsBundle:Evenement:supprimerParticipant }
+
+
 
 events_frontshow:
-    path: /user/Events
+    path:   /user/Events
     defaults: { _controller: EventsBundle:EvenementFront:list }
-events_ajoutrole:
-    path: /ajoutRole/{role}/{username}
-    defaults: { _controller: EventsBundle:User:ajouterRole }
+events_archive:
+    path: /user/Events/archive
+    defaults: { _controller: EventsBundle:EvenementFront:archive }
+events_rechercheevent:
+    path:   /user/Events/Recherche
+    defaults: { _controller: EventsBundle:EvenementFront:recherche }
+events_frontdetailsevent:
+    path:   /user/detailsEvent/{idevent}
+    defaults: { _controller: EventsBundle:EvenementFront:details }
+events_frontparticiper:
+    path:   /user/participer/{idevent}/{ideleve}
+    defaults: { _controller: EventsBundle:EvenementFront:participer }
+events_proposerevent:
+    path:   /user/proposer
+    defaults: { _controller: EventsBundle:EvenementFront:proposer }
+
+events_frontshowvisitor:
+    path:   /Events
+    defaults: { _controller: EventsBundle:EvenementFront:list }
+
+events_frontdetailseventVisitor:
+    path:   /detailsEvent/{idevent}
+    defaults: { _controller: EventsBundle:EvenementFront:details }
+

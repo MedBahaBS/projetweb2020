@@ -1,39 +1,120 @@
-{% extends '@Events/Base_frontend/base.html.twig' %}
-{% block title %}
+{% extends 'Base_frontend/base.html.twig' %}
+{% block titre %}
      Nos événements
 {% endblock %}
-
-{% block events %}
-    <div class="container">
-        <div class="row">
-    {% for event in events %}
-            <div class="col-md-6 col-lg-4 ftco-animate">
-                <div class="blog-entry">
-                    <a href="#" class="block-20 d-flex align-items-end" style="background-image: url({{ asset('assets/Front/images/image_1.jpg') }});">
-                        <img src="" />
-                        <div class="meta-date text-center p-2">
-                            <span class="day">{{ event.date|date("d")}}</span>
-                            <span class="mos">{{ event.date|date("M")}}</span>
-                            <span class="yr">{{ event.date|date("Y")}}</span>
-                        </div>
-                    </a>
-                    <div class="text bg-white p-4">
-                        <h3 class="heading"><a href="#">{{ event.titre}}</a></h3>
-                        <p>{{ event.description}}</p>
-                        <div class="d-flex align-items-center mt-4">
-                            <p class="mb-0"><a href="{{  path('events_detailsevent', {'idevent' : event.idevenement}) }}" class="btn btn-secondary">Read More
-                                    <span class="ion-ios-arrow-round-forward"></span></a></p>
-                           {#
-                            <p class="ml-auto mb-0">
-                                <a href="#" class="mr-2">Admin</a>
-                                <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
-                            #}
-                        </div>
-                    </div>
+{%  block baniere %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets/Front/images/bg_2.jpg')}});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">Nos événements</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="#">Home <i class="ion-ios-arrow-forward"></i></a></span>
+                        <span><a href="{{ path('events_frontshow') }}"> Evénements</a> <i class="ion-ios-arrow-forward"></i></span></p>
                 </div>
             </div>
-    {% endfor %}
         </div>
+    </section>
+{% endblock %}
+{% block events %}
+
+    <div class="container">
+            <div class="row">
+            {% if archive == true %}
+                <div class="col-md-5">
+                    <a href="{{ path('events_frontshow') }}" >
+                        <button class="btn btn-primary">Evénements à venir</button>
+                    </a>
+                    <a href="#" >
+                        <button class="btn btn-primary active">Evénements déja passés</button>
+                    </a>
+                </div>
+            {% else %}
+                <div class="col-md-5">
+                    <a href="#" >
+                        <button class="btn btn-primary active">Evénements à venir</button>
+                    </a>
+                    <a href="{{ path('events_archive') }}" >
+                        <button class="btn btn-primary">Evénements déja passés</button>
+                    </a>
+                </div>
+            {% endif %}
+            </div>
+            {{ form_start(f, {'attr' : { 'class' : 'search-form'}}) }}
+                <div class="row">
+                    <div class="col-md-5">
+                        {{ form_widget(f.titre,{'attr' : { 'class' : 'form-control'}} ) }}
+                    </div>
+                    <div class="row col-md-5">
+                        <div class="col-md-3">Date : </div>
+                         {{ form_widget(f.date) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        {{ form_widget(f.lieu,{'attr' : { 'class' : 'form-control'}}) }}
+                    </div>
+                    <div class="row col-md-5">
+
+                        <div class="col-md-3">Catégorie :</div> {{ form_widget(f.categorie) }}
+                        <div class="row col-md-5">
+                            <div class="col-md-5">Club:</div> {{ form_widget(f.club) }}
+                        </div>
+                    </div>
+                    {{ form_widget(f.Chercher, {'attr' : { 'class' : 'btn btn-info m-r-20'}}) }}
+                </div>
+            {{ form_end(f) }}
+
+                {% if uneRecherche == true %}
+                    <div class="center">Il y {{ nb }} événements correspondant aux critères</div>
+                {% endif %}
+            <div class="row">
+                {%  if events is not empty  %}
+                     {% for event in events %}
+                        <div class="col-md-6 col-lg-4 ftco-animate">
+                            <div class="blog-entry">
+                                <a href="#" class="block-20 d-flex align-items-end"
+                                   {% if event.imageName is not null %}
+                                   style="background-image: url({{asset('../public/images/events/')}}{{ event.imageName }});"
+                                    {% else %}
+                                        style="background-image: url({{asset('../public/pas_image.png')}}{{ event.imageName }});"
+                                        {% endif %}>
+                                    <div class="meta-date text-center p-2">
+                                        <span class="day">{{ event.date|date("d")}}</span>
+                                        <span class="mos">{{ event.date|date("M")}}</span>
+                                        <span class="yr">{{ event.date|date("Y")}}</span>
+                                    </div>
+                                </a>
+                                <div class="text bg-white p-4">
+                                    <h3 class="heading"><a href="#">{{ event.titre}}</a></h3>
+                                    <p>{{ event.description}}</p>
+                                    <div class="d-flex align-items-center mt-4">
+                                        <p class="mb-0">
+                                            <a href="{{  path('events_frontdetailsevent', {'idevent' : event.idevenement}) }}"
+                                               class="btn btn-secondary">Consulter
+                                                <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                       {#
+                                        <p class="ml-auto mb-0">
+                                            <a href="#" class="mr-2">Admin</a>
+                                            <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                                        </p>
+                                        #}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     {% endfor %}
+                {% else %}
+                    Il n'y a aucun événement correspondant à votre recherche
+                {% endif %}
+            </div>
     </div>
+    <div class="navigation">
+        {{ knp_pagination_render(events) }}
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#evenement").addClass("active");
+    </script>
 {% endblock %}

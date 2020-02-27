@@ -3,6 +3,7 @@
 namespace EventsBundle\Controller;
 
 use EventsBundle\Form\CategorieType;
+use EventsBundle\Form\RechercheCategorieType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use EventsBundle\Entity\Categorie;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,12 +19,19 @@ class CategorieController extends Controller
         return $this->render('@Events/Evenement/accueil.html.twig');
     }
 
-    public function listAction()
-    {
+    public function listAction(Request $request)
+    {   $categorie  = new Categorie();
+        $form = $this->createForm(RechercheCategorieType::class,$categorie);
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository(Categorie::class)->findAll();
+
+            if ($form->handleRequest($request)->isSubmitted())
+                return $this->rechercheAction($request,$categorie);
+
         return $this->render('@Events/Categorie/liste_categorie.html.twig',
-            array('categories' => $categories));
+            array('categories' => $categories,
+                'f' => $form->createView(),
+                'uneRecherche' => false));
     }
 
     public function ajoutAction(Request $request)
@@ -74,5 +82,35 @@ class CategorieController extends Controller
             $em->flush();
             return $this->redirectToRoute("events_listecategorie");
 
+    }
+
+    public function rechercheAction(Request $request,Categorie $categorie){
+        $form = $this->createForm(RechercheCategorieType::class);
+        $form = $form->handleRequest($request);
+        $categorieLibelle = array();
+        $categorieDescription = array();
+
+
+        if ($categorie->getLibelle() != '')
+            $categorieLibelle = $this->getDoctrine()
+                ->getRepository(Categorie::class)
+                ->myfindByLibelle($categorie->getLibelle());
+
+        if ($categorie->getDescription() != '')
+            $categorieDescription = $this->getDoctrine()
+                ->getRepository(Categorie::class)
+                ->myfindByDescription($categorie->getDescription());
+
+        if (sizeof($categorieLibelle) == 0 && sizeof($categorieDescription) == 0)
+            $categories = $this->getDoctrine()->getManager()->getRepository(Categorie::class)->findAll();
+        else
+            $categories = $categorieLibelle + $categorieDescription ;
+
+        return $this->render('@Events/Categorie/liste_categorie.html.twig',
+            array('categories'=>$categories ,
+                'f' => $form->createView() ,
+                'nb' => sizeof($categories),
+                'uneRecherche' => true
+            ));
     }
 }

@@ -1,0 +1,46 @@
+{% extends 'Base_frontend/base.html.twig' %}
+{% block title %} Don confirmé {% endblock %}
+{% block baniere %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets/Front/images/bg_2.jpg')}});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">Votre Don</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="#">Accueil <i class="ion-ios-arrow-forward"></i></a></span> <span>Don <i class="ion-ios-arrow-forward"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+{%  endblock %}
+{% block content %}
+
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+                <div class="page-title-breadcrumb">
+                    <div class=" pull-left">
+                        <div class="page-title"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box">
+                        <div class="card-head">
+                            <header></header>
+                        </div>
+                        <div class="card-body row">
+                            Un mail de confirmation à éte envoye , merci de confirmer votre don via votre boite d'email
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#club").addClass("active");
+    </script>
+{% endblock %}

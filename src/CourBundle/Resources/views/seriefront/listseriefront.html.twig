@@ -1,0 +1,56 @@
+{% extends "Base_frontend/base.html.twig" %}
+{% block titre %} Les séries {% endblock %}
+{% block baniere %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets/Front/images/unnamed.png')}});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">Les séries</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{{ path('cantine_front_homepage') }}">Home <i class="ion-ios-arrow-forward"></i></a></span>
+                        <span>Séries <i class="ion-ios-arrow-forward"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block content  %}
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            {% for infos in se %}
+            <div class="col-md-6 course d-lg-flex ftco-animate">
+                <div class="img" style=""></div>
+                <div class="text bg-light p-4">
+
+                    <h3><a href="#">{{ infos.lien }}</a></h3>
+                    <p class="subheading"><span>Telecharger serie </span>
+                        <a href="{{ asset('uploads/brochures/' ~ infos.lien) }}"> {{ infos.nomserie}} </a>
+                    </p>
+                    <p class="subheading"><span>Nomserie</span>{{ infos.nomserie}}</p>
+                    <p class="subheading"><span>Description </span>{{ infos.description }}</p>
+
+
+                <p class="button text-right"><a  href="{{ path ('ajout_panier',{'id':infos.idserie}) }}" class="btn btn-quarternary px-4 py-3">à faire </a></p>
+
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+                </div>
+            </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#series").addClass("active");
+    </script>
+{% endblock %}

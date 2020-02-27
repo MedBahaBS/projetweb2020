@@ -1,0 +1,46 @@
+
+scolarite_readm:
+    path:     /admin/afficherM
+    defaults: { _controller: ScolariteBundle:Matiere:readm }
+
+scolarite_ajoutm:
+    path:     /admin/ajoutM
+    defaults: { _controller: ScolariteBundle:Matiere:ajoutM }
+
+scolarite_delete:
+    path:     /admin/delete/{idmatiere}
+    defaults: { _controller: ScolariteBundle:Matiere:delete }
+
+scolarite_modifier:
+    path:     /admin/modifier/{idmatiere}
+    defaults: { _controller: ScolariteBundle:Matiere:modifier }
+
+scolarite_readn:
+    path:     /admin/afficherN
+    defaults: { _controller: ScolariteBundle:Note:readn }
+
+scolarite_ajoutn:
+    path:     /admin/ajoutN
+    defaults: { _controller: ScolariteBundle:Note:ajoutn }
+
+scolarite_modifiern:
+    path:     /admin/modifiern/{idnote}
+    defaults: { _controller: ScolariteBundle:Note:modifiern }
+
+scolariteajoutfrontn:
+    path:     /user/ajoutfrontN
+    defaults: { _controller: ScolariteBundle:Note:ajoutfrontn }
+
+scolaritereadfrontn:
+    path:     /user/afficherfrontN
+    defaults: { _controller: ScolariteBundle:Note:readfrontn }
+
+scolarite_modifierfrontn:
+    path:     /user/modifierfrontn/{idnote}
+    defaults: { _controller: ScolariteBundle:Note:modifierfrontn }
+scolarite_pdf:
+    path:     /Reclamation/pdf
+    defaults: { _controller: ScolariteBundle:Pdf:pdf }
+
+
+

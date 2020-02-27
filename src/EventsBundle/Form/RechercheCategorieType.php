@@ -9,16 +9,19 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CategorieType extends AbstractType
+class RechercheCategorieType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('Libelle',TextType::class, array('attr' => array('placeholder' => 'Entrer le libelle ici')))
-        ->add('Description', TextareaType::class, array('attr' => array('placeholder' => 'Entrer le description ici')))
-        ->add('Ajouter', SubmitType::class);
+        $builder->add('Libelle',TextType::class,
+            array('attr' => array('placeholder' => 'Libelle'),
+                'required' => false))
+        ->add('Description', TextareaType::class, array('attr' => array('placeholder' => 'Description'),
+            'required' => false))
+        ->add('Chercher', SubmitType::class);
     }/**
      * {@inheritdoc}
      */

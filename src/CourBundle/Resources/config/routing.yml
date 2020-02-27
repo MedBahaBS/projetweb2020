@@ -1,0 +1,74 @@
+cour_reponse:
+    resource: "@CourBundle/Resources/config/routing/reponse.yml"
+    prefix:   /reponse
+
+
+couomepage:
+  path:     /aa
+  defaults: { _controller: CourBundle:Cour:list2 }
+cour_test:
+    path:     /test
+    defaults: { _controller: CourBundle:Cour:index }
+cour_ajout:
+  path:     /admin/ajoutcour
+  defaults: { _controller: CourBundle:Cour:ajout }
+cour_list:
+  path:     /admin/listcour
+  defaults: { _controller: CourBundle:Cour:list }
+cour_modifier:
+  path:     /admin/modifiercour/{id}
+  defaults: { _controller: CourBundle:Cour:modifier}
+cour_supp:
+  path:     /admin/supprimercour/{id}
+  defaults: { _controller: CourBundle:Cour:supprimer}
+cour_listfront:
+  path:     /listcourfront
+  defaults: { _controller: CourBundle:Cour:affichefront }
+serie_ajout:
+  path:     /admin/ajoutserie
+  defaults: { _controller: CourBundle:Serie:ajout }
+serie_list:
+  path:     /admin/listserie
+  defaults: { _controller: CourBundle:Serie:list }
+serie_modifier:
+  path:     /admin/modifierserie/{id}
+  defaults: { _controller: CourBundle:Serie:modifier}
+cour_consulter:
+  path:     /admin/consulter/{id}
+  defaults: { _controller: CourBundle:Cour:consulter}
+serie_supp:
+  path:     /admin/supprimerserie/{id}
+  defaults: { _controller: CourBundle:Serie:supprimer}
+serie_listfront:
+    path:     /listseriefront
+    defaults: { _controller: CourBundle:Serie:listaffiche}
+avis_list:
+  path:     /admin/listavis
+  defaults: { _controller: CourBundle:Avis:list }
+avis_ajout:
+  path:     /admin/ajoutavis
+  defaults: { _controller: CourBundle:Avis:ajout }
+avis_supp:
+  path:     /admin/supprimeravis/{id}
+  defaults: { _controller: CourBundle:Avis:supprimer}
+
+ajout_panier:
+  path:     /addTo/panier/{id}
+  defaults: { _controller: CourBundle:Serie:addToPanier}
+afficher_panier:
+  path:     /panier
+  defaults: { _controller: CourBundle:Panier:index}
+afficher_repback:
+    path:    /admin/reponse
+    defaults: { _controller: CourBundle:Reponse:affichebackreponse}
+
+serie:
+  resource: "@CourBundle/Resources/config/routing/reponse.yml"
+  prefix:   /reponse
+cour_like:
+  path:     /like/{id}
+  defaults: { _controller: CourBundle:Cour:like }
+
+cour_dislike:
+  path:     /dislike/{id}
+  defaults: { _controller: CourBundle:Cour:dislike }

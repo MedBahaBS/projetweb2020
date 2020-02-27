@@ -1,0 +1,190 @@
+{% extends 'Base_frontend/base.html.twig' %}
+{% block titre %} Liste des menu {% endblock %}
+{% block content %}
+
+
+    <section class="hero-wrap hero-wrap-2" style="background-image:url('/assetsFront/images/bg_1.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">Liste des Menus</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+
+        <div class="container">
+            <div class="row">
+                {% for m in menu %}
+                    <div class="col-md-6 col-lg-3 ftco-animate">
+                        <div class="pricing-entry bg-light pb-4 text-center">
+
+                            <div>
+                                <h1 class="mb-3" style="font-family: Impact, Charcoal, sans-serif ;color: #0f6674">{{ m.jourMenu }}</h1>
+                                {#<p><span class="price">$24.50</span> <span class="per">/ 5mos</span></p>#}
+                            </div>
+
+                            <h2>{{ m.entree.nomPlat }}</h2>
+                            <h2>{{ m.platPrincipal.nomPlat }}</h2>
+                            <h2>{{ m.dessert.nomPlat }}</h2>
+                            <a href="{{ path('ajouterUneEtoile',{'id':m.id,'nombre':1}) }}"><img src="{{ asset('/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg') }}" width="25px" height="25px" class="etoileVide1"></a>
+                            <a href="{{ path('ajouterUneEtoile',{'id':m.id,'nombre':2}) }}"><img src="{{ asset('/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg') }}" width="25px" height="25px" class="etoileVide2"></a>
+                            <a href="{{ path('ajouterUneEtoile',{'id':m.id,'nombre':3}) }}"><img src="{{ asset('/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg') }}" width="25px" height="25px" class="etoileVide3"></a>
+                            <a href="{{ path('ajouterUneEtoile',{'id':m.id,'nombre':4}) }}"><img src="{{ asset('/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg') }}" width="25px" height="25px" class="etoileVide4"></a>
+                            <a href="{{ path('ajouterUneEtoile',{'id':m.id,'nombre':5}) }}"><img src="{{ asset('/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg') }}" width="25px" height="25px" class="etoileVide5"></a>
+                            <br>
+                        </div>
+                    </div>
+
+
+                {% endfor %}
+                <div class="d-flex align-items-center mt-4">
+                    <p class="mb-0"><a href="{{ path('ajouterCommantaire') }}" class="btn btn-secondary">ajouter un commantaire<span class="ion-ios-arrow-round-forward"></span></a></p>
+                </div>
+                <br>
+                <div class="d-flex align-items-center mt-4">
+                    <p class="mb-0"><a href="{{ path('inscrption') }}" class="btn btn-secondary">s'inscrire<span class="ion-ios-arrow-round-forward"></span></a></p>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $(".etoileVide1").mouseenter(function(){
+                $(".etoileVide1").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+            })  ;
+            $(".etoileVide1").mouseleave(function(){
+                $(".etoileVide1").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+            })  ;
+            $(".etoileVide2").mouseenter(function(){
+                $(".etoileVide1").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+                $(".etoileVide2").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+            })  ;
+            $(".etoileVide2").mouseleave(function(){
+                $(".etoileVide2").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+                $(".etoileVide1").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+            })  ;
+            $(".etoileVide3").mouseenter(function(){
+                $(".etoileVide1").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+                $(".etoileVide2").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+                $(".etoileVide3").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+            })  ;
+            $(".etoileVide3").mouseleave(function(){
+                $(".etoileVide2").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+                $(".etoileVide1").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+                $(".etoileVide3").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+            })  ;
+            $(".etoileVide4").mouseenter(function(){
+                $(".etoileVide1").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+                $(".etoileVide2").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+                $(".etoileVide3").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+                $(".etoileVide4").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+            })  ;
+            $(".etoileVide4").mouseleave(function(){
+                $(".etoileVide2").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+                $(".etoileVide1").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+                $(".etoileVide3").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+                $(".etoileVide4").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+            })  ;
+            $(".etoileVide5").mouseenter(function(){
+                $(".etoileVide1").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+                $(".etoileVide2").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+                $(".etoileVide3").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+                $(".etoileVide4").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+                $(".etoileVide5").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_pleine.svg');
+            })  ;
+            $(".etoileVide5").mouseleave(function(){
+                $(".etoileVide2").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+                $(".etoileVide1").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+                $(".etoileVide3").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+                $(".etoileVide4").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+                $(".etoileVide5").attr('src','/PIDEV_integration/web/../public/images/cantine/etoile_vide.svg');
+            })  ;
+        });
+
+    </script>
+
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-2">
+                <div class="col-md-8 text-center heading-section ftco-animate">
+                    <h2 class="mb-4"><span>TOP 1</span> des menus</h2>
+                    <p>Voici la liste des tops 2 menus classés selon la moyenne de nombre des etoiles</p>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for top in top3 %}
+                    <div class="col-md-3 col-lg-4 ftco-animate">
+                        <div class="blog-entry">
+                            <div class="meta-date text-center p-2">
+                                <span class="day">{{ loop.index }} <sup>ere</sup></span>
+                                <span class="mos">place</span>
+                            </div>
+                            </a>
+                            <div class="text bg-white p-4">
+                                <h3 class="heading">{{ top.jourMenu }}</h3>
+                                <p>Entree: {{ top.entree.nomPlat }}</p>
+                                <p>Plat Principal: {{ top.platPrincipal.nomPlat }}</p>
+                                <p>Dessert: {{ top.dessert.nomPlat }}</p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <section class="ftco-section testimony-section bg-light">
+                <div class="container">
+                    <div class="row justify-content-center mb-5 pb-2">
+                        <div class="col-md-8 text-center heading-section ftco-animate">
+                            <h2 class="mb-4"><span>ce que les élèves</span> ont exprime </h2>
+                            <p>c'est un espace ou vous pouvez exprimer votre opinion librement</p>
+                        </div>
+                    </div>
+                    <div class="row ftco-animate justify-content-center">
+                        <div class="col-md-12">
+                            <div class="carousel-testimony owl-carousel">
+
+                                {% for commantaire in listeCommantaires %}
+                                    <div class="item">
+                                        <div class="testimony-wrap d-flex">
+                                            <div class="text ml-2 bg-light">
+                  	                            <span class="quote d-flex align-items-center justify-content-center">
+                                                <i class="icon-quote-left"></i>
+                                                </span>
+                                                <p>{{ commantaire.message }}</p>
+                                                <span class="position">{{ commantaire.user.username }}</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </section>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#cantine").addClass("active");
+    </script>
+{% endblock %}

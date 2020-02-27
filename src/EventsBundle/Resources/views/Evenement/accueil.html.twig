@@ -1,33 +1,12 @@
-{% extends '@Events/Base_backend/base.html.twig' %}
+{% extends 'Base_backend/base.html.twig' %}
+{% block stylesheets %}
+
+{% endblock %}
 {% block title %}
      Calendrier
 {% endblock %}
 {% block navbar %}
-    <li class="nav-item active open">
-        <a href="event.html" class="nav-link nav-toggle">
-            <span class="title">Evenements</span><span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-            <li class="nav-item active">
-                <a href="{{ path('events_accueil') }}" class="nav-link"> <span class="title">
-												Calendrier</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ path('events_listeevent') }}" class="nav-link "> <span class="title">
-												Liste des événements</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="add_professor.html" class="nav-link "> <span class="title">Evénements en attente</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ path('events_listecategorie') }}" class="nav-link "> <span class="title">Liste des catégories</span>
-                </a>
-            </li>
-        </ul>
-    </li>
+
 {% endblock %}
 {% block content %}
         <div class="page-content-wrapper">
@@ -35,7 +14,7 @@
                 <div class="page-bar">
                     <div class="page-title-breadcrumb">
                         <div class=" pull-left">
-                            <div class="page-title">Evénements</div>
+                            <div class="page-title">Calendrier</div>
                         </div>
                         <ol class="breadcrumb page-breadcrumb pull-right">
                             <li><i class="fa fa-home"></i>&nbsp;
@@ -48,21 +27,13 @@
                     </div>
                 </div>
                 <div class="row">
-
                     <div class="col-md-9 col-sm-12">
-                        <div class="card-box">
-                            <div class="card-head">
-                                <header>Calendrier</header>
-                            </div>
-
-                            <div class="card-body ">
-                                <div class="panel-body">
-                                    <div id="calendar" class="has-toolbar"> </div>
-                                </div>
-                            </div>
-                        </div>
+                         {% include '@FullCalendar/Calendar/calendar.html.twig' %}
                     </div>
                 </div>
             </div>
         </div>
+{% endblock %}
+{% block javascripts %}
+
 {% endblock %}

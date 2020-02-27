@@ -1,0 +1,83 @@
+{% extends 'Base_backend/base.html.twig' %}
+{% block title %} Modifier le club {% endblock %}
+{% block content %}
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+                <div class="page-title-breadcrumb">
+                    <div class=" pull-left">
+                        <div class="page-title">Modifier Club</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box">
+                        <div class="card-head">
+                            <header>Modifier Club</header>
+                        </div>
+
+                        <div class="card-body" id="bar-parent">
+                            {{form_start(form, {'attr': {'class': 'form-horizontal'}} )}}
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Nom du club
+                                    <span class="required"> * </span>
+                                </label>
+                                {{ form_widget(form.Nom, {'attr': {'class' : 'col-md-5 form-control input-height'}}) }}
+                                {% if form_errors(form.Nom) is not empty %}
+                                    <div class="alert alert-danger" >
+                                        {{ form_errors(form.Nom) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Description du club
+                                    <span class="required"> * </span>
+                                </label>
+                                {{ form_widget(form.Description, {'attr': {'class' : 'col-md-5 form-control input-height'}}) }}
+                                {% if form_errors(form.Description) is not empty %}
+                                    <div class="alert alert-danger alert-dismissable" >
+                                        <div class="alert alert-danger alert-dismissible" >
+                                            {{ form_errors(form.Description) }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">
+                                    Responsable du club
+                                    <span class="required"> * </span>
+                                </label>
+                                {{ form_widget(form.Responsable, {'attr': {'class' : 'col-md-5 input-height'}}) }}
+                                {% if form_errors(form.Responsable) is not empty %}
+                                    <div class="alert alert-danger alert-dismissible" >
+                                        {{ form_errors(form.Responsable) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="offset-md-3 col-md-9">
+                                        {{ form_widget(form.Ajouter,{'attr' :{ 'class' : 'btn btn-info m-r-20'}}) }}
+                                        <button type="reset" class="btn btn-default">Annuler</button>
+                                    </div>
+                                </div>
+                            </div>
+                            {{form_end(form)}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#club").addClass("open active");
+        $("#afficheclub").addClass("active");
+    </script>
+{% endblock %}

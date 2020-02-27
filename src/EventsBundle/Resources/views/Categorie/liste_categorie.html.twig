@@ -1,36 +1,7 @@
-{% extends '@Events/Base_backend/base.html.twig' %}
-{% block title %}
+{% extends 'Base_backend/base.html.twig' %}
+{% block titre %}
      Liste des catégories
 {% endblock %}
-
-{% block navbar %}
-    <li class="nav-item active open">
-        <a href="#" class="nav-link nav-toggle">
-            <span class="title">Evenements</span><span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-            <li class="nav-item">
-                <a href="{{ path('events_accueil') }}" class="nav-link"> <span class="title">
-												Calendrier</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ path('events_listeevent') }}" class="nav-link "> <span class="title">
-												Liste des événements</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link "> <span class="title">Evénements en attente</span>
-                </a>
-            </li>
-            <li class="nav-item active">
-                <a href="{{ path('events_listecategorie') }}" class="nav-link "> <span class="title">Liste des catégories</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-{% endblock %}
-
 {% block content %}
     <!-- start page content -->
     <div class="page-content-wrapper">
@@ -43,7 +14,7 @@
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         <li><i class="fa fa-home"></i>&nbsp;
                             <a class="parent-item"
-                               href="http://radixtouch.in/templates/admin/smart/source/light/index.html">Accueil</a>&nbsp;
+                               href="{{ path('events_accueil') }}">Accueil</a>&nbsp;
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li><a class="parent-item" href="#">Catégories</a>&nbsp;<i class="fa fa-angle-right"></i>
@@ -53,15 +24,28 @@
                 </div>
             </div>
             <div class="row">
+
                 <div class="col-md-12">
                     <div class="tabbable-line">
                         <div class="tab-content">
                             <div class="tab-pane active fontawesome-demo" id="tab1">
                                 <div class="row">
+
                                     <div class="col-md-12">
                                         <div class="card card-box">
                                             <div class="card-head">
                                                 <header>Tous les catégories</header>
+                                                <br>
+                                                <div class="col-md-5">
+                                                    {{ form_start(f, {'attr' : { 'class' : 'search-form'}}) }}
+                                                        {{ form_widget(f.Libelle,{'attr' : { 'class' : 'form-control'}} ) }}
+                                                        {{ form_widget(f.Description,{'attr' : { 'class' : 'form-control'}}) }}
+                                                        {{ form_widget(f.Chercher, {'attr' : { 'class' : 'fa fa-search btn btn-primary btn-circle m-r-20'}}) }}
+                                                    {{ form_end(f) }}
+                                                </div><br>
+                                                {% if uneRecherche == true %}
+                                                    <div>Il y {{ nb }} événements correspondant aux critères</div>
+                                                {% endif %}
                                                 <div class="tools">
                                                     <a class="fa fa-repeat btn-color box-refresh"
                                                        href="javascript:;"></a>
@@ -153,4 +137,10 @@
         </div>
     </div>
     <!-- end page content -->
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#evenement").addClass("open active");
+        $("#categorie").addClass("active");
+    </script>
 {% endblock %}

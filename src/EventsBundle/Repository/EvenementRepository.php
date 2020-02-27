@@ -4,63 +4,58 @@
 namespace EventsBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 
-class ParticipantRepository extends EntityRepository
+class EvenementRepository extends EntityRepository
 {
-    public function findParticipantNameAndID($idevenement){
-        $qb= $this->getEntityManager()->createQuery('SELECT u.username, u.id
-        FROM EventsBundle:User u,EventsBundle:Participant p
-        WHERE p.idevenement=:idevenement
-        AND p.ideleve=u.id')
-            ->setParameter('idevenement' , $idevenement);
+    public function myfindByTitre($titre){
+        $qb= $this->getEntityManager()->createQuery(
+            'SELECT e
+                    FROM EventsBundle:Evenement e
+                        WHERE e.titre LIKE :titre
+                        AND e.etat = 1')
+            ->setParameter('titre', '%'.$titre.'%');
         return $result = $qb->getResult();
     }
 
-    public function findParticipantsNumber($idevenement){
+    public function myfindByDate($date){
         $qb= $this->getEntityManager()->createQuery(
-            'SELECT COUNT(p.ideleve) as nb
-                    FROM EventsBundle:Participant p
-                        WHERE p.idevenement=:idevenement')
-            ->setParameter('idevenement' , $idevenement);
-        return $result = $qb->getResult();
-    }
-    public function findByTitre($titre){
-        $qb= $this->getEntityManager()->createQuery(
-            'SELECT *
+            'SELECT e 
                     FROM EventsBundle:Evenement e
-                        WHERE e.titre LIKE :titre
-                        AND e.etat = :etat')
-            ->setParameter('titre','%'.$titre.'%')
-            ->setParameter('etat' , 1);
-        return $result = $qb->getResult();
-    }
-    public function findByDate($date){
-        $qb= $this->getEntityManager()->createQuery(
-            'SELECT * 
-                    FROM EventsBundle:Evenement e
-                        WHERE e.date = :date
-                        AND e.etat = :etat')
+                        WHERE e.date >= :date
+                        AND e.etat = 1')
             ->setParameter('date' , $date)
-            ->setParameter('etat' , 1);
+            ;
         return $result = $qb->getResult();
     }
-    public function findByLieu($lieu){
+
+    public function myfindByLieu($lieu){
         $qb= $this->getEntityManager()->createQuery(
-            'SELECT * 
+            'SELECT e
                     FROM EventsBundle:Evenement e
                         WHERE e.lieu LIKE :lieu
-                        AND e.etat = :etat')
-            ->setParameter('lieu' , $lieu)
-            ->setParameter('etat' , 1);
+                        AND e.etat = 1')
+            ->setParameter('lieu' , '%'.$lieu.'%');
         return $result = $qb->getResult();
     }
-    public function findByCategorie($categorie){
+
+    public function myfindEvenement(){
         $qb= $this->getEntityManager()->createQuery(
-            'SELECT * 
+            'SELECT e
                     FROM EventsBundle:Evenement e
-                        WHERE e.categorie LIKE :categorie
-                        AND e.etat = :etat')
-            ->setParameter('lieu' , $categorie)
-            ->setParameter('etat' , 1);
+                        WHERE e.date >= :date
+                        AND e.etat = 1')
+            ->setParameter('date' , new \DateTime())
+            ;
+        return $result = $qb->getResult();
+    }
+
+    public function myfindEvenementPasse(){
+        $qb= $this->getEntityManager()->createQuery(
+            'SELECT e
+                    FROM EventsBundle:Evenement e
+                        WHERE e.date <= :date
+                        AND e.etat = 1')
+            ->setParameter('date' , new \DateTime())
+        ;
         return $result = $qb->getResult();
     }
 }

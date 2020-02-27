@@ -1,0 +1,27 @@
+{% extends "Base_backend/base.html.twig" %}
+{% block titre %} Les avis {% endblock %}
+{% block container  %}
+
+  <table border="1">
+
+    <td>niveau</td>
+
+    {% for infos in avis %}
+      <tr>
+        <td>{{ infos.idavis }}</td>
+        <td>{{ infos.avisparent}}</td>
+        <td><a  href="{{ path ('avis_supp',{'id':infos.idavis}) }}"> suppimer </a></td>
+
+
+
+
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+{% block javascripts %}
+  <script type="text/javascript">
+    $("#avis").addClass("open active");
+    $("#listeavis").addClass("active");
+  </script>
+{% endblock %}

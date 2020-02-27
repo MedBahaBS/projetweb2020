@@ -6,12 +6,13 @@ namespace EventsBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class EvenementType extends AbstractType
 {
@@ -22,16 +23,31 @@ class EvenementType extends AbstractType
     {
         $builder->add('titre',TextType::class, array('attr' => array('placeholder' => 'Entrer le titre ici')))
             ->add('description', TextareaType::class, array('attr' => array('placeholder' => 'Entrer le description ici')))
-            ->add('date')
+            ->add('date', DateTimeType::class)
+            ->add('datefin', DateTimeType::class)
             ->add('nbParticipantMax')
             ->add('lieu', TextType::class ,array('attr' => array('placeholder' => 'Entrer le lieu ici')))
             ->add('frais')
-            ->add('datefin')
+
             ->add('categorie',EntityType::Class,array(
                 'class'=>'EventsBundle:Categorie',
                 'choice_label'=>'libelle',
                 'multiple'=>false
             ))
+            ->add('club',EntityType::Class,array(
+                'class'=>'ClubBundle:Club',
+                'choice_label'=>'Nom',
+                'multiple'=>false,
+                'required' => false
+            ))
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+//                'download_label' => '...',
+                //'download_uri' => true,
+              //  'image_uri' => true,
+               // 'imagine_pattern' => '...',
+                //'asset_helper' => true,
+            ])
             ->add('Ajouter', SubmitType::class);
 
     }/**

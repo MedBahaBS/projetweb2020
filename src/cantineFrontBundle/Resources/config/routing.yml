@@ -1,0 +1,21 @@
+cantine_front_homepage:
+    path:     /user/index
+    defaults: { _controller: cantineFrontBundle:Default:index }
+afficher_menu:
+    path:     /user/afficherMenuFront
+    defaults: { _controller: cantineFrontBundle:front:afficherMenu }
+teste:
+    path:     /user/teste
+    defaults: { _controller: cantineFrontBundle:front:teste }
+inscrption:
+    path:     /user/inscrption
+    defaults: { _controller: cantineFrontBundle:front:inscrption }
+ajouterUneEtoile:
+    path:     /user/ajouterUneEtoile/{id}/{nombre}
+    defaults: { _controller: cantineFrontBundle:front:ajouterUneEtoile }
+ajouterCommantaire:
+    path:     /user/ajouterCommantaire
+    defaults: { _controller: cantineFrontBundle:front:ajouterCommantaire }
+inscriptionNewsLetter:
+    path:     /user/inscriptionNewsLetter
+    defaults: { _controller: cantineFrontBundle:front:inscriptionNewsLetter }

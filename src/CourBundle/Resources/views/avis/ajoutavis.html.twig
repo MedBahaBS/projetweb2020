@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+{% block titre %} Les séries {% endblock %}
+{% block container  %}
+    {{ form_start(form) }}
+    {{ form_widget(form.avisparent) }}
+    {{ form_widget(form.rating) }}
+    {{ form_widget(form.Ajouter) }}
+    {{ form_end(form) }}
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#avis").addClass("open active");
+        $("#ajouteravis").addClass("active");
+    </script>
+{% endblock %}

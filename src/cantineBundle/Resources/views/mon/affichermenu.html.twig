@@ -1,0 +1,267 @@
+{% extends 'Base_backend/base.html.twig' %}
+{% block titre %} Les menu {% endblock %}
+{% block content %}
+
+    <!-- start page content -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+                <div class="page-title-breadcrumb">
+                    <div class=" pull-left">
+                        <div class="page-title">Liste des menus</div>
+                    </div>
+
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    <ol class="breadcrumb page-breadcrumb pull-right">
+                        <li><i class="fa fa-home"></i>&nbsp;
+                            <a class="parent-item"
+                               href="index.html">Accueil</a>&nbsp;
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li><a class="parent-item" href="#">MENU</a>&nbsp;<i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="active">Liste des menus</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tabbable-line">
+
+                        <ul class="nav customtab nav-tabs" role="tablist">
+                            <li class="nav-item"><a href="#tab1" class="nav-link" data-toggle="tab">Liste
+                                    </a></li>
+                            <li class="nav-item"><a href="#tab2" class="nav-link active" data-toggle="tab">Grille
+                                    </a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane fontawesome-demo" id="tab1">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-box">
+                                            <div class="card-head">
+                                                <header>Tous les menus</header>
+                                                <div class="tools">
+                                                    <a class="fa fa-repeat btn-color box-refresh"
+                                                       href="javascript:;"></a>
+                                                    <a class="t-collapse btn-color fa fa-chevron-down"
+                                                       href="javascript:;"></a>
+                                                    <a class="t-close btn-color fa fa-times"
+                                                       href="javascript:;"></a>
+                                                </div>
+                                            </div>
+                                            <div class="card-body ">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-6 col-6">
+                                                        <div class="btn-group">
+                                                            <a href="{{ path('ajoutermenu') }}" id="addRow"
+                                                               class="btn btn-info">
+                                                                Ajouter un menu <i class="fa fa-plus"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-6">
+                                                        <div class="btn-group pull-right">
+                                                            <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                                                               data-toggle="dropdown">Tools
+                                                                <i class="fa fa-angle-down"></i>
+                                                            </a>
+                                                            <ul class="dropdown-menu pull-right">
+                                                                <li>
+                                                                    <a href="javascript:;">
+                                                                        <i class="fa fa-print"></i> Print </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:;">
+                                                                        <i class="fa fa-file-pdf-o"></i> Save as
+                                                                         PDF </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ path('exportmenu') }}">
+                                                                        <i class="fa fa-file-excel-o"></i>
+                                                                        Export to Excel </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="table-scrollable">
+                                                    <table
+                                                            class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                                                            id="example4">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>jour menu</th>
+                                                            <th>entree</th>
+                                                            <th>plat principal</th>
+                                                            <th> dessert</th>
+
+                                                        </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                        {% for l in m %}
+                                                            {% if l.jourMenu=='lundi' %}
+                                                            <tr class="odd gradeX">
+                                                                <td>{{ l.jourMenu }}</td>
+                                                                <td>{{ l.entree.nomPlat }}</td>
+                                                                <td>{{ l.platPrincipal.nomPlat }}</td>
+                                                                <td>{{ l.dessert.nomPlat }}</td>
+                                                                <td>
+                                                                    <a href="{{ path('modifiermenu',{'id':l.id}) }}"
+                                                                       class="btn btn-primary btn-xs">
+                                                                        <i class="fa fa-pencil"></i>
+                                                                    </a>
+                                                                    <a href="{{ path('supprimermenu',{'id':l.id}) }}"
+                                                                       class="btn btn-danger btn-xs">
+                                                                        <i class="fa fa-trash-o "></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% for l in m %}
+                                                            {% if l.jourMenu==' mardi' %}
+                                                            <tr>
+                                                                    <td>{{ l.jourMenu }}</td>
+                                                                    <td>{{ l.entree.nomPlat }}</td>
+                                                                    <td>{{ l.platPrincipal.nomPlat }}</td>
+                                                                    <td>{{ l.dessert.nomPlat }}</td>
+                                                                    <td>
+                                                                        <a href="{{ path('modifiermenu',{'id':l.id}) }}"
+                                                                           class="btn btn-primary btn-xs">
+                                                                            <i class="fa fa-pencil"></i>
+                                                                        </a>
+                                                                        <a href="{{ path('supprimermenu',{'id':l.id}) }}"
+                                                                           class="btn btn-danger btn-xs">
+                                                                            <i class="fa fa-trash-o "></i>
+                                                                        </a>
+                                                                    </td>
+                                                            </tr>
+                                                            {% endif %}
+                                                        {% endfor %}
+
+                                                        {% for l in m %}
+                                                            {% if l.jourMenu=='mercredi' %}
+                                                                <tr>
+                                                                    <td>{{ l.jourMenu }}</td>
+                                                                    <td>{{ l.entree.nomPlat }}</td>
+                                                                    <td>{{ l.platPrincipal.nomPlat }}</td>
+                                                                    <td>{{ l.dessert.nomPlat }}</td>
+                                                                    <td>
+                                                                        <a href="{{ path('modifiermenu',{'id':l.id}) }}"
+                                                                           class="btn btn-primary btn-xs">
+                                                                            <i class="fa fa-pencil"></i>
+                                                                        </a>
+                                                                        <a href="{{ path('supprimermenu',{'id':l.id}) }}"
+                                                                           class="btn btn-danger btn-xs">
+                                                                            <i class="fa fa-trash-o "></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% for l in m %}
+                                                            {% if l.jourMenu=='jeudi' %}
+                                                                <tr>
+                                                                    <td>{{ l.jourMenu }}</td>
+                                                                    <td>{{ l.entree.nomPlat }}</td>
+                                                                    <td>{{ l.platPrincipal.nomPlat }}</td>
+                                                                    <td>{{ l.dessert.nomPlat }}</td>
+                                                                    <td>
+                                                                        <a href="{{ path('modifiermenu',{'id':l.id}) }}"
+                                                                           class="btn btn-primary btn-xs">
+                                                                            <i class="fa fa-pencil"></i>
+                                                                        </a>
+                                                                        <a href="{{ path('supprimermenu',{'id':l.id}) }}"
+                                                                           class="btn btn-danger btn-xs">
+                                                                            <i class="fa fa-trash-o "></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% for l in m %}
+                                                            {% if l.jourMenu=='vendredi' %}
+                                                                <tr>
+                                                                    <td>{{ l.jourMenu }}</td>
+                                                                    <td>{{ l.entree.nomPlat }}</td>
+                                                                    <td>{{ l.platPrincipal.nomPlat }}</td>
+                                                                    <td>{{ l.dessert.nomPlat }}</td>
+                                                                    <td>
+                                                                        <a href="{{ path('modifiermenu',{'id':l.id}) }}"
+                                                                           class="btn btn-primary btn-xs">
+                                                                            <i class="fa fa-pencil"></i>
+                                                                        </a>
+                                                                        <a href="{{ path('supprimermenu',{'id':l.id}) }}"
+                                                                           class="btn btn-danger btn-xs">
+                                                                            <i class="fa fa-trash-o "></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane active" id="tab2">
+                                <div class="row">
+                                    {% for l in m %}
+
+                                        <div class="col-md-6">
+                                            <div class="card card-box">
+                                                <div class="card-body no-padding ">
+                                                    <div class="doctor-profile">
+                                                        <!--      <img src="http://radixtouch.in/templates/admin/smart/source/assets/img/prof/prof10.jpg" class="doctor-pic"
+                                                                   alt="">-->
+                                                        <div class="profile-usertitle">
+
+                                                            <div class="doctor-name">{{ l.jourMenu }} </div>
+                                                            <div class="name-center font-italic mdl-color--blue"> {{l.entree.nomPlat}} </div>
+                                                            <div class="name-center font-italic mdl-color--blue"> {{l.platprincipal.nomPlat}} </div>
+                                                            <div class="name-center font-italic mdl-color--blue"> {{l.dessert.nomPlat}} </div>
+                                                        </div>
+
+                                                        <div class="profile-userbuttons">
+                                                            <a href="http://radixtouch.in/templates/admin/smart/source/light/professor_profile.html"
+                                                               class="btn btn-circle deepPink-bgcolor btn-sm">Read
+                                                                More</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end page content -->
+
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#cantine").addClass("open active");
+        $("#listemenu").addClass("active");
+    </script>
+{% endblock %}
+
+
+

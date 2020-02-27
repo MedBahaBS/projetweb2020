@@ -1,0 +1,139 @@
+{% extends "Base_backend/base.html.twig" %}
+{% block titre %} Liste des cours {% endblock %}
+{% block content  %}
+    <div class="page-content-wrapper">
+    <div class="page-content">
+    <div class="page-bar">
+    <div class="row">
+    <div class="col-md-12">
+    <div class="tabbable-line">
+
+    <div class="tab-content">
+
+    <div class="tab-pane active fontawesome-demo" id="tab1">
+
+    <div class="row">
+
+
+    <div class="col-md-12">
+
+    <div class="card card-box">
+    <div class="card-head">
+        <header> Liste des cours </header>
+        <div class="tools">
+            <a class="fa fa-repeat btn-color box-refresh"
+               href="javascript:;"></a>
+            <a class="t-collapse btn-color fa fa-chevron-down"
+               href="javascript:;"></a>
+            <a class="t-close btn-color fa fa-times"
+               href="javascript:;"></a>
+        </div>
+    </div>
+
+    <div class="card-body ">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-6">
+            <div class="btn-group">
+                <a href="ajoutcour" id="addRow"
+                   class="btn btn-info">
+                   Ajouter Nouveau cour  <i class="fa fa-plus"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-6">
+            <div class="btn-group pull-right">
+                <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                   data-toggle="dropdown">Tools
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-print"></i> Print </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-file-pdf-o"></i> Save as
+                            PDF </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-file-excel-o"></i>
+                            Export to Excel </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="table-scrollable">
+    <table
+            class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+            id="example4">
+        <thead>
+        <tr>
+            <th> id </th>
+            <th> Niveau </th>
+            <th> matiere </th>
+            <th> Nom Chapitre </th>
+            <th> Date </th>
+            <th> Email </th>
+            <th> lien </th>
+
+            <th> Action </th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd gradeX">
+
+        {% for infos in cours %}
+            <tr>
+                <td>{{ infos.idcour }}</td>
+                <td>{{ infos.niveau }}</td>
+                <td>{{ infos.matiere.nom}}</td>
+                <td>{{ infos.nomchapitre }}</td>
+                <td>{{ infos.date|date('Y-m-d')}}</td>
+                <td>{{ infos.email }}</td>
+                <td>{{ infos.lien }}</td>
+
+
+
+            <td>
+                <a href="{{ path ('cour_modifier',{'id':infos.idcour}) }}"
+                   class="btn btn-primary btn-xs">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a  href="{{ path ('cour_consulter',{'id':infos.idcour}) }}">
+                    <i class="fa fa-eye" style="font-size:24px;color:red"></i>
+                </a>
+                <a  href="{{ path ('cour_supp',{'id':infos.idcour}) }}">
+                <button class="btn btn-danger btn-xs">
+                    <i class="fa fa-trash-o "></i>
+                </button>
+                </a>
+            </td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#cours").addClass("open active");
+        $("#listcours").addClass("active");
+    </script>
+{% endblock %}

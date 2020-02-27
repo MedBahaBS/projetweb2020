@@ -1,0 +1,147 @@
+{% extends 'Base_backend/base.html.twig' %}
+{% block titre %}Accueil{% endblock %}
+{% block content %}
+        <!-- start page content -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <div class="page-bar">
+                    <div class="page-title-breadcrumb">
+                        <div class=" pull-left">
+                            <div class="page-title">Dashboard</div>
+                        </div>
+                        <ol class="breadcrumb page-breadcrumb pull-right">
+                            <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                                   href="index-2.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+                            </li>
+                            <li class="active">Dashboard</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- start widget -->
+                <div class="state-overview">
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 col-12">
+                            <div class="info-box bg-b-green">
+                                <span class="info-box-icon push-bottom"><i class="material-icons">group</i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Total Elèves</span>
+                                    <span class="info-box-number">{{ nbEleves }}</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 45%"></div>
+                                    </div>
+                                    <span class="progress-description">
+
+										</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-xl-3 col-md-6 col-12">
+                            <div class="info-box bg-b-yellow">
+                                <span class="info-box-icon push-bottom"><i class="material-icons">person</i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Total Enseignants</span>
+                                    <span class="info-box-number">{{ nbEnseignants}}</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 40%"></div>
+                                    </div>
+                                    <span class="progress-description">
+
+										</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-xl-3 col-md-6 col-12">
+                            <div class="info-box bg-b-blue">
+                                <span class="info-box-icon push-bottom"><i class="material-icons">school</i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Total Cours</span>
+                                    <span class="info-box-number">{{ nbCours }}</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 85%"></div>
+                                    </div>
+                                    <span class="progress-description">
+
+										</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-xl-3 col-md-6 col-12">
+                            <div class="info-box bg-b-pink">
+									<span class="info-box-icon push-bottom"><i
+                                                class="material-icons"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Total menus</span>
+                                    <span class="info-box-number">{{ nbMenus }}</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 50%"></div>
+                                    </div>
+                                    <span class="progress-description">
+
+										</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </div>
+                <!-- end widget -->
+
+                <!-- start course list -->
+
+                <div class="row">
+                    {% for cour in Cours|slice(0, 4) %}
+                    <div class="col-lg-3 col-md-6 col-12 col-sm-6">
+                        <div class="blogThumb">
+                            <div class="thumb-center"><img class="img-responsive" alt="user"
+                                                           src="../assets/img/course/course1.jpg"></div>
+                            <div class="course-box">
+                                <h4>{{ cour.nomchapitre}}</h4>
+                                <div class="text-muted"><span class="m-r-10">{{cour.date|date}}</span>
+                                </div>
+                                <p><span><i class="ti-alarm-clock"></i> Matière : {{ cour.matiere.nom }}</span></p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    {% for event in Events|slice(0, 4) %}
+                        <div class="col-lg-3 col-md-6 col-12 col-sm-6">
+                            <div class="blogThumb">
+                                <div class="thumb-center"><img src="{{asset('../public/images/events/')}}{{ event.imageName }}"
+                                                               class="icon-picture" style="height: 150px"
+                                                               alt="{{ event.imageName }}"></div>
+                                <div class="course-box">
+                                    <h4>{{ event.titre}}</h4>
+                                    <div class="text-muted"><span class="m-r-10">{{event.date|date}}</span>
+                                    </div>
+                                    <p><span><i class="ti-alarm-clock"></i> Club : {{ event.club }}</span></p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+                <!-- End course list -->
+
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#accueil").addClass("active");
+    </script>
+{% endblock %}

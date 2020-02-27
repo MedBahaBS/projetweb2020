@@ -1,0 +1,58 @@
+{%  extends "Base_frontend/base.html.twig" %}
+{% block titre %} Votre panier {% endblock %}
+{% block baniere %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets/Front/images/unnamed.png')}});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <h1 class="mb-2 bread">des cours</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Courses <i class="ion-ios-arrow-forward"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block content  %}
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                {% for infos in panier.seriess %}
+                <div class="col-md-6 course d-lg-flex ftco-animate">
+                    <div class="img" style=""></div>
+                    <div class="text bg-light p-4">
+
+                        <h3><a href="#">{{ infos.lien }}</a></h3>
+                        <p class="subheading"><span>Telecharger serie </span>
+                            <a href="{{ asset('uploads/brochures/' ~ infos.lien) }}"> {{ infos.nomserie}} </a>
+                        </p>
+                        <p class="subheading"><span>Nomserie</span>{{ infos.nomserie}}</p>
+                        <p class="subheading"><span>Description </span>{{ infos.description }}</p>
+                        <p class="button text-right"><a  href="{{ path ('reponse_new',{'id':infos.idserie}) }}" class="btn btn-quarternary px-4 py-3">Repondre </a></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        </div>
+        </div>
+
+
+
+
+
+        {% endfor %}
+        </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#panier").addClass("active");
+    </script>
+{% endblock %}

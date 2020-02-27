@@ -1,0 +1,35 @@
+<center><div class="col-lg-6 col-md-8">
+
+        <div class="ripple-container"></div>
+        <div class="tab-content tab-space">
+            <h1>LISTE ABONNéS</h1>
+            <div class="tab-pane" id="pill1" style="margin-bottom: 25px; width: 1000px; height: 700px;  margin-left: 30px;">
+                <center><table class="table" id="tableacc"  aligne ="center"   width="500">
+                        <thead >
+
+                        <tr bgcolor="#bdb76b">
+                            <th>username </th>
+                            <th>email de  l'utilisateur</th>
+
+                        </tr>
+                        </thead>
+                        <tbody  >
+                        {% for ll in listeInscription %}
+                            <tr class="odd gradeX" bgcolor="#faebd7">
+                                <td >{{ ll.user.username }}</td>
+                                <td>{{ ll.user.email }}</td>
+
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table></center>
+            </div>
+
+        </div>
+    </div>
+    <div style="width:60px; margin-left: 600px;">
+        <img src="/assets/img/  88.png"  height="100px">
+    </div>
+</center>
+

@@ -2,9 +2,6 @@
 
 namespace EventsBundle\Controller;
 
-use EventsBundle\Entity\User;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use \FOS\UserBundle\Controller\SecurityController;
 
 class LoginController extends SecurityController
@@ -14,8 +11,11 @@ class LoginController extends SecurityController
         if ($this->isGranted("ROLE_ADMIN")){
             return $this->redirectToRoute('events_accueil');
         }
+        else if ($this->isGranted("ROLE_CLUB")){
+            return $this->redirectToRoute('events_proposerevent');
+        }
         else if ($this->isGranted("ROLE_USER")){
-            return $this->redirectToRoute('events_frontshow');
+            return $this->redirectToRoute('cantine_front_homepage');
         }
 
         return $this->redirectToRoute('fos_user_security_login');

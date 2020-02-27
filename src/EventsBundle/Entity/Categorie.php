@@ -3,8 +3,9 @@
 
 namespace EventsBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
-/** @ORM\Entity
+/** @ORM\Entity(repositoryClass="EventsBundle\Repository\CategorieRepository")
  *
  */
 
@@ -18,10 +19,12 @@ class Categorie
  private $idcategorie;
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(message="Le champs libelle ne doit pas être vide")
      */
  private $libelle;
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(message="Le champs description ne doit pas être vide")
      */
  private $description;
     /**

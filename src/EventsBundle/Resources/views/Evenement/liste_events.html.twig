@@ -1,5 +1,5 @@
-{% extends '@Events/Base_backend/base.html.twig' %}
-{% block title %}
+{% extends 'Base_backend/base.html.twig' %}
+{% block titre %}
      Liste des événements
 {% endblock %}
 {% block navbar %}
@@ -19,7 +19,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link "> <span class="title">Evénements en attente</span>
+                <a href="{{ path('events_listeeventpending') }}" class="nav-link "> <span class="title">Evénements en attente</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -61,6 +61,36 @@
                                     View</a></li>
                         </ul>
 
+                        {{ form_start(f, {'attr' : { 'class' : 'search-form'}}) }}
+                        <div class="row">
+                            <div class="col-md-5">
+                                {{ form_widget(f.titre,{'attr' : { 'class' : 'form-control'}} ) }}
+                            </div>
+                            <div class="row col-md-5">
+                                <div class="col-md-3">Date : </div>
+                                {{ form_widget(f.date) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                {{ form_widget(f.lieu,{'attr' : { 'class' : 'form-control'}}) }}
+                            </div>
+                            <div class="row col-md-5">
+                                <div class="col-md-3">Catégorie :</div>
+                                {{ form_widget(f.categorie) }}
+                                <div class="row col-md-5">
+                                    <div class="col-md-5">Club :</div>
+                                    {{ form_widget(f.club) }}
+                                </div>
+                            </div>
+
+                            {{ form_widget(f.Chercher, {'attr' : { 'class' : 'fa fa-search btn btn-primary btn-circle m-r-20'}}) }}
+                        </div>
+                        {{ form_end(f) }}
+
+                        {% if uneRecherche == true %}
+                            <div>Il y {{ nb }} événements correspondant aux critères</div>
+                        {% endif %}
                         <div class="tab-content">
                             <div class="tab-pane fontawesome-demo" id="tab1">
                                 <div class="row">
@@ -87,6 +117,7 @@
                                                             </a>
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-6 col-sm-6 col-6">
                                                         <div class="btn-group pull-right">
                                                             <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
@@ -119,7 +150,6 @@
                                                         <thead>
                                                         <tr>
                                                             <th>Titre</th>
-                                                            <th> Description </th>
                                                             <th> Date début </th>
                                                             <th> Nombre maximal de participants </th>
                                                             <th> Lieu </th>
@@ -131,8 +161,8 @@
                                                         </thead>
                                                         <tbody>
                                                         {% for event in events %}
+                                                         {% if event.etat == 1  %}
                                                         <tr class="odd gradeX">
-                                                            <td>{{ event.idevenement}}</td>
                                                             <td class="left">{{ event.titre}}</td>
                                                             <td class="left">{{ event.date | date}}</td>
                                                             <td>{{ event.nbParticipantMax }}</td>
@@ -149,8 +179,13 @@
                                                                    class="btn btn-danger btn-xs">
                                                                     <i class="fa fa-trash-o "></i>
                                                                 </a>
+                                                                <a href="{{ path('events_detailsevent',{ 'idevent' : event.idevenement}) }}"
+                                                                   class="btn btn-circle btn-xs deepPink-bgcolor">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </a>
                                                             </td>
                                                         </tr>
+                                                            {% endif %}
                                                         {% endfor %}
                                                         </tbody>
                                                     </table>
@@ -173,12 +208,14 @@
                                 </div>
                                 <div class="row">
                                     {% for event in events %}
+                                        {% if event.etat == 1  %}
                                     <div class="col-md-6">
                                         <div class="card card-box">
                                             <div class="card-body no-padding ">
                                                 <div class="doctor-profile">
-                                                    <img src="http://radixtouch.in/templates/admin/smart/source/assets/img/prof/prof10.jpg" class="doctor-pic"
-                                                         alt="">
+                                                    <img src="{{asset('../public/images/events/')}}{{ event.imageName }}"
+                                                         class="icon-picture" style="height: 150px"
+                                                         alt="{{ event.imageName }}">
                                                     <div class="profile-usertitle">
                                                         <div class="doctor-name">{{ event.titre }} </div>
                                                         <div class="name-center font-italic mdl-color--blue"> {{ event.categorie.libelle}} </div>
@@ -188,14 +225,16 @@
                                                         <p><i class="fa fa-map-marker"></i> {{ event.lieu }}</p>
                                                     </div>
                                                     <div class="profile-userbuttons">
-                                                        <a href="{{ path('events_detailsevent', { 'id' : event.idevenement }) }}"
-                                                           class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                            More</a>
+                                                        <a href="{{ path('events_detailsevent', { 'idevent' : event.idevenement }) }}"
+                                                           class="btn btn-circle deepPink-bgcolor btn-sm">
+                                                                Consulter
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                        {% endif %}
                                     {% endfor %}
                                 </div>
                             </div>
@@ -205,5 +244,12 @@
             </div>
         </div>
     </div>
+
     <!-- end page content -->
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#evenement").addClass("open active");
+        $("#listevents").addClass("active");
+    </script>
 {% endblock %}

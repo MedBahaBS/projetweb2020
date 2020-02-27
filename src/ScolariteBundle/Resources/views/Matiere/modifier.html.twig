@@ -1,0 +1,40 @@
+{% extends 'Base_backend/base.html.twig' %}
+{% block titre %} Modification d'une matière {% endblock %}
+{% block content %}
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+                <div class="page-title-breadcrumb">
+                    <div class=" pull-left">
+                        <div class="page-title">Modification d'une matière</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box">
+                        <div class="card-head">
+                            <header>faire la modification de la matiére : </header>
+                        </div>
+                        <div class="card-body row">
+                            <h1></h1>
+                            <form method="post">
+                                Nom: <input type="text" name="nom" value="{{ matiere.nom }}"></br>
+                                Nombre de seance: <input type="text" name="nbrseance" value="{{ matiere.nbrseance }}"></br>
+                                Description: <input type="text" name="description" value="{{ matiere.description }}"></br>
+                                Coéfficient: <input type="text" name="coefficient" value="{{ matiere.coefficient }}"></br>
+                                <input type="submit" value="modifier">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#scolarite").addClass("open active");
+        $("#listematiere").addClass("active");
+    </script>
+{% endblock %}

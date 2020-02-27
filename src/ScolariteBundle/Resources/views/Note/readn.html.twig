@@ -1,0 +1,94 @@
+{% extends 'Base_backend/base.html.twig' %}
+{% block titre %} Liste des notes {% endblock %}
+{% block content %}
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+                <div class="page-title-breadcrumb">
+                    <div class=" pull-left">
+                        <div class="page-title">Liste des notes</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tabbable-line">
+
+                        <div class="tab-content">
+                            <div class="tab-pane active fontawesome-demo" id="tab1">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card card-box">
+                                            <div class="card-head">
+                                                <header>Liste des notes</header>
+                                                <div class="tools">
+                                                    <a class="fa fa-repeat btn-color box-refresh"
+                                                       href="javascript:"></a>
+                                                    <a class="t-collapse btn-color fa fa-chevron-down"
+                                                       href="javascript:"></a>
+                                                    <a class="t-close btn-color fa fa-times"
+                                                       href="javascript:"></a>
+                                                </div>
+                                            </div>
+                                            <div class="card-body ">
+
+                                                <div class="table-scrollable">
+                                                    <table
+                                                            class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                                                            id="example4">
+                                                        <thead>
+                                                        <tr>
+                                                            <th> Matiére </th>
+                                                            <th> ID </th>
+                                                            <th>Classe</th>
+                                                            <th>Note 1 </th>
+                                                            <th>Note 2 </th>
+                                                            <th> Moyenne </th>
+
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for notes in notes %}
+                                                            <tr class="odd gradeX">
+                                                                <td class="left">{{ notes.Matiere.nom }} </td>
+                                                                <td class="patient-img">
+                                                                    {{ notes.idnote }}
+                                                                </td>
+                                                                <td class="patient-img">
+                                                                    {{ notes.classe.libelle }}
+                                                                </td>
+                                                                <td class="left"> {{ notes.note1 }} </td>
+                                                                <td>{{ notes.note2 }}</td>
+                                                                <td class="left">{{ notes.moyenne }} </td>
+                                                                <td><a href="{{  path('scolarite_modifiern',{'idnote':notes.idnote}) }}"> Modifier </a></td>
+
+
+
+
+                                                            </tr>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#scolarite").addClass("open active");
+        $("#listenote").addClass("active");
+    </script>
+{% endblock %}

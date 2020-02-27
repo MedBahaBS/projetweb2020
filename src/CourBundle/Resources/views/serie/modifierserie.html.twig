@@ -1,0 +1,20 @@
+{% extends "Base_backend/base.html.twig" %}
+{% block titre %} Modification d'une série {% endblock %}
+{% block content  %}
+
+    <widest  style="...">
+    <form method= "POST">
+        lien:<input type="text" name ="lien" value="{{ serie.lien}}"><br/>
+        nomchapitre:<input name ="nomserie" type="text" value="{{ serie.nomserie }}"><br/>
+        Description:<input type="text" name ="description"value="{{ serie.description }}"><br/>
+
+
+        <input type="submit"value="enregister">
+    </form>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#serie").addClass("open active");
+        $("#listeseries").addClass("active");
+    </script>
+{% endblock %}

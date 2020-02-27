@@ -1,34 +1,6 @@
-{% extends '@Events/Base_backend/base.html.twig' %}
-{% block title %}
+{% extends 'Base_backend/base.html.twig' %}
+{% block titre %}
      Modification d'une catégorie
-{% endblock %}
-
-{% block navbar %}
-    <li class="nav-item active open">
-        <a href="#" class="nav-link nav-toggle">
-            <span class="title">Evenements</span><span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-            <li class="nav-item">
-                <a href="{{ path('events_accueil') }}" class="nav-link"> <span class="title">
-												Calendrier</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ path('events_listeevent') }}" class="nav-link "> <span class="title">
-												Liste des événements</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link "> <span class="title">Evénements en attente</span>
-                </a>
-            </li>
-            <li class="nav-item active">
-                <a href="{{ path('events_listecategorie') }}" class="nav-link "> <span class="title">Liste des catégories</span>
-                </a>
-            </li>
-        </ul>
-    </li>
 {% endblock %}
 
 {% block content %}
@@ -66,6 +38,11 @@
                                 <span class="required"> * </span>
                             </label>
                             {{ form_widget(f.Libelle, {'attr': {'class' : 'col-md-5 form-control input-height'}}) }}
+                            {% if form_errors(f.Libelle) is not empty %}
+                                <div class="alert alert-danger" >
+                                    {{ form_errors(f.Libelle) }}
+                                </div>
+                            {% endif %}
                         </div>
                         <div class="form-group row">
                             <label class="control-label col-md-3">
@@ -73,6 +50,11 @@
                                 <span class="required"> * </span>
                             </label>
                             {{ form_widget(f.Description, {'attr': {'class' : 'col-md-5 form-control input-height'}}) }}
+                            {% if form_errors(f.Description) is not empty %}
+                                <div class="alert alert-danger" >
+                                    {{ form_errors(f.Description) }}
+                                </div>
+                            {% endif %}
                         </div>
                         <div class="form-actions">
                             <div class="row">
@@ -91,4 +73,10 @@
         </div>
     </div>
     <!-- end page content -->
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#evenement").addClass("open active");
+        $("#categorie").addClass("active");
+    </script>
 {% endblock %}

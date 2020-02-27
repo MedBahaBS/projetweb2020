@@ -1,0 +1,77 @@
+{% extends 'Base_backend/base.html.twig' %}
+{% block titre %} Ajout d'une matière {% endblock %}
+{% block content %}
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+                <div class="page-title-breadcrumb">
+                    <div class=" pull-left">
+                        <div class="page-title">Ajouter Matiére</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box">
+                        <div class="card-head">
+                            <header>Ajouter Matiére</header>
+                        </div>
+                        <div class="card-body row">
+                            {{form_start(form, {'attr': {'class': 'form-horizontal'}} )}}
+                            <div class="card-body row">
+                                <div class="col-lg-6 p-t-20">
+                                    <div
+                                            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"><b><i>nom : </i></b>
+
+                                        {{ form_widget(form.Nom, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div
+                                            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"><b><i>Nombre de seance : </i></b>
+
+                                        {{ form_widget(form.nbrseance, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div
+                                            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"><b><i>Description : </i></b>
+
+                                        {{ form_widget(form.description, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div
+                                            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width"><b><i>Coéfficient : </i></b>
+
+                                        {{ form_widget(form.coefficient, { 'attr': {'class': 'mdl-textfield__input'} }) }}
+
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="offset-md-3 col-md-9">
+                                            {{ form_widget(form.Ajouter,{'attr' :{ 'class' : 'btn btn-info m-r-20'}}) }}
+                                            <button type="reset" class="btn btn-default">Annuler</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#scolarite").addClass("open active");
+        $("#ajoutermatiere").addClass("active");
+    </script>
+{% endblock %}

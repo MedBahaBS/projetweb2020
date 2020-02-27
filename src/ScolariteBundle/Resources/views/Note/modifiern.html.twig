@@ -1,0 +1,40 @@
+{% extends 'Base_backend/base.html.twig' %}
+{% block titre %} Modification d'une note {% endblock %}
+{% block content %}
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+                <div class="page-title-breadcrumb">
+                    <div class=" pull-left">
+                        <div class="page-title">Modification d'une note</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box">
+                        <div class="card-head">
+                            <header>faire la modification pour la note:</header>
+                        </div>
+                        <div class="card-body row">
+                            <h1></h1>
+                            <form method="post">
+                                Note 1: <input type="text" name="note1" value="{{ note.note1 }}"></br>
+                                Note 2: <input type="text" name="note2" value="{{ note.note2 }}"></br>
+                                Moyenne: <input type="text" name="moyenne" value="{{ note.moyenne }}"></br>
+
+                                <input type="submit" value="modifier">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#scolarite").addClass("open active");
+        $("#listenote").addClass("active");
+    </script>
+{% endblock %}
